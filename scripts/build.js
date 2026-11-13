@@ -144,7 +144,7 @@ function matchPage(m) {
 ${m.commentary ? `<section class="card"><h2>AI 해설</h2><p>${esc(m.commentary)}</p><p class="note">아래 데이터를 근거로 AI가 작성한 글입니다.</p></section>` : ''}
 ${adBlock('detail')}
 <section class="card"><h2>부상·결장 선수</h2>
-${m.injuries.available ? `<div class="cols"><div><h3>${esc(m.home.name)}</h3>${injuryTable(m.injuries.home)}</div><div><h3>${esc(m.away.name)}</h3>${injuryTable(m.injuries.away)}</div></div>
+${m.injuries.available ? `<div class="cols stack"><div><h3>${esc(m.home.name)}</h3>${injuryTable(m.injuries.home)}</div><div><h3>${esc(m.away.name)}</h3>${injuryTable(m.injuries.away)}</div></div>
 ${impact ? `<p class="note" style="margin-top:12px">부상 반영 전 확률은 홈 승 ${pct(impact.before.pHome)} · 무 ${pct(impact.before.pDraw)} · 원정 승 ${pct(impact.before.pAway)} 였습니다. 결장 선수의 골·도움 비중과 주전 수비수 여부로 보정했습니다.</p>` : ''}` : '<p class="note">이 종목은 데이터 제공처에서 부상자 정보를 제공하지 않아 분석에 반영하지 못했습니다.</p>'}
 </section>
 <section class="card"><h2>최근 5경기</h2><div class="cols">

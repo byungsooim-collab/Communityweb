@@ -63,6 +63,7 @@ a.match:hover { border-color: var(--accent); }
 .note { color: var(--muted); font-size: 13px; }
 .cols { display: grid; grid-template-columns: 1fr; gap: 16px; }
 @media (min-width: 640px) { .cols { grid-template-columns: 1fr 1fr; } }
+.cols.stack { grid-template-columns: 1fr; }
 .cols > div { min-width: 0; }
 .cols h3 { margin: 0 0 8px; font-size: 14px; }
 .scroll { overflow-x: auto; }
