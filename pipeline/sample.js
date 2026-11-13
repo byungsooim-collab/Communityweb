@@ -69,6 +69,8 @@ for (const league of LEAGUES) {
   matches.push(...analyzed);
   leagues.push({ id: league.id, name: league.name, sport: league.sport, season: '샘플', ok: true, finished: games.filter((g) => g.status === 'finished').length, upcoming: analyzed.length, backtest: backtest(games, league.sport) });
 }
+// 샘플은 가상 팀이라 실제 기사 대신 검색 링크만 붙인다.
+for (const m of matches) for (const t of [m.home, m.away]) t.news = { query: `${t.name} 부상`, items: [] };
 matches.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
 await writeJson(dataPath('matches.json'), { updatedAt: new Date(now).toISOString(), sample: true, leagues, matches });
 await writeJson(dataPath('history.json'), updateHistory({ entries: [] }, matches, gamesByLeague));

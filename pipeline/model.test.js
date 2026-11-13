@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { footballModel, eloModel, injuryAdjustment, pickOf } from './model.js';
 import { seasonFor, normalizeGame } from './apisports.js';
 import { analyzeLeague, backtest } from './analyze.js';
+import { koreanTeamName, plainText, addTeamNews } from './news.js';
 
 const game = (id, daysAgo, home, away, hs, as) => ({ id, date: new Date(Date.now() - daysAgo * 86400000).toISOString(), status: 'finished', home: { id: home, name: `T${home}` }, away: { id: away, name: `T${away}` }, score: { home: hs, away: as } });
 
@@ -74,4 +75,21 @@ test('리그 분석: 예정 경기만 나오고 부상자가 팀별로 나뉜다
   assert.equal(out[0].home.last5.length, 5);
   assert.equal(out[0].home.rank, 1);
   assert.equal(backtest(games, 'football'), null); // 경기 수가 워밍업(30)보다 적으면 백테스트 없음
+});
+
+test('뉴스: 한글 팀명 매칭과 제목 정리', async () => {
+  assert.equal(koreanTeamName('kleague1', 'Suwon FC'), '수원FC');
+  assert.equal(koreanTeamName('kleague1', 'Suwon Bluewings'), '수원 삼성');
+  assert.equal(koreanTeamName('kbo', 'LG Twins'), 'LG 트윈스');
+  assert.equal(koreanTeamName('kbo', 'Kiwoom Heroes'), '키움 히어로즈');
+  assert.equal(koreanTeamName('kbl', 'Seoul SK Knights'), '서울 SK 나이츠');
+  assert.equal(koreanTeamName('epl', 'Arsenal'), null);
+  assert.equal(koreanTeamName('kbo', 'Unknown Club'), null);
+  assert.equal(plainText('<b>울산</b> &quot;부상&quot; 악재 &amp; 복귀'), '울산 "부상" 악재 & 복귀');
+  // 키가 없으면 호출 없이 검색어만 붙고, 국내 리그가 아니면 붙지 않는다.
+  const matches = [{ leagueId: 'kbo', home: { name: 'LG Twins' }, away: { name: 'KT Wiz' } }, { leagueId: 'epl', home: { name: 'Arsenal' }, away: { name: 'Chelsea' } }];
+  delete process.env.NAVER_CLIENT_ID;
+  await addTeamNews(matches, { enabled: true, queryTemplate: '{team} 부상', cacheHours: 6, maxQueriesPerRun: 5, perTeam: 3, endpoint: 'https://example.invalid' }, {});
+  assert.deepEqual(matches[0].home.news, { query: 'LG 트윈스 부상', items: [] });
+  assert.equal(matches[1].home.news, undefined);
 });

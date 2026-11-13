@@ -2,6 +2,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { root, dataPath, readJson, loadConfig } from '../pipeline/store.js';
+import { searchLink } from '../pipeline/news.js';
 
 const config = await loadConfig();
 const data = await readJson(dataPath('matches.json'), null);
@@ -125,6 +126,10 @@ const split = (s, football) => `${s.win}승 ${football ? `${s.draw}무 ` : ''}${
 const scored = (sport) => (sport === 'volleyball' ? '딴 세트' : '득점');
 const conceded = (sport) => (sport === 'volleyball' ? '내준 세트' : '실점');
 
+const newsBlock = (t) => `<div><h3>${esc(t.name)}</h3>
+${t.news.items.length ? `<ul class="news">${t.news.items.map((n) => `<li><a href="${esc(n.link)}" target="_blank" rel="noopener nofollow">${esc(n.title)}</a>${n.date ? ` <span class="note num">${shortDate(n.date)}</span>` : ''}</li>`).join('')}</ul>` : ''}
+<a class="more" href="${esc(searchLink(t.news.query))}" target="_blank" rel="noopener nofollow">네이버 뉴스에서 "${esc(t.news.query)}" 검색 →</a></div>`;
+
 function matchPage(m) {
   const p = m.prediction;
   const football = m.sport === 'football';
@@ -147,6 +152,8 @@ ${adBlock('detail')}
 ${m.injuries.available ? `<div class="cols stack"><div><h3>${esc(m.home.name)}</h3>${injuryTable(m.injuries.home)}</div><div><h3>${esc(m.away.name)}</h3>${injuryTable(m.injuries.away)}</div></div>
 ${impact ? `<p class="note" style="margin-top:12px">부상 반영 전 확률은 홈 승 ${pct(impact.before.pHome)} · 무 ${pct(impact.before.pDraw)} · 원정 승 ${pct(impact.before.pAway)} 였습니다. 결장 선수의 골·도움 비중과 주전 수비수 여부로 보정했습니다.</p>` : ''}` : '<p class="note">이 종목은 데이터 제공처에서 부상자 정보를 제공하지 않아 분석에 반영하지 못했습니다.</p>'}
 </section>
+${m.home.news || m.away.news ? `<section class="card"><h2>부상 관련 뉴스</h2><div class="cols">${[m.home, m.away].filter((t) => t.news).map(newsBlock).join('')}</div>
+<p class="note" style="margin-top:12px">네이버 뉴스 검색 결과이며 승패 확률과 AI 해설에는 반영되지 않습니다. 기사 내용은 각 언론사에 있습니다.</p></section>` : ''}
 <section class="card"><h2>최근 5경기</h2><div class="cols">
 <div><h3>${esc(m.home.name)} <span class="note num">${m.home.last5Summary.win}승 ${football ? `${m.home.last5Summary.draw}무 ` : ''}${m.home.last5Summary.loss}패</span></h3>${formTable(m.home)}</div>
 <div><h3>${esc(m.away.name)} <span class="note num">${m.away.last5Summary.win}승 ${football ? `${m.away.last5Summary.draw}무 ` : ''}${m.away.last5Summary.loss}패</span></h3>${formTable(m.away)}</div>

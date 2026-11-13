@@ -3,6 +3,7 @@
 import { ApiSports, BudgetError, seasonFor, fetchGames, fetchInjuries, fetchPlayerStats } from './apisports.js';
 import { analyzeLeague, updateHistory, backtest } from './analyze.js';
 import { addCommentary } from './commentary.js';
+import { addTeamNews } from './news.js';
 import { dataPath, readJson, writeJson, loadConfig } from './store.js';
 
 const config = await loadConfig();
@@ -71,6 +72,7 @@ for (const league of leagues) {
 // 이번에 실행하지 않은 리그의 경기는 유지
 if (only.length) matches.push(...previous.matches.filter((m) => !only.includes(m.leagueId) && Date.parse(m.date) > now));
 matches.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
+const news = await addTeamNews(matches, config.news, cache.news, now);
 const commentary = await addCommentary(matches, config.commentary, cache.commentary);
 const history = updateHistory(await readJson(dataPath('history.json'), { entries: [] }), matches, gamesByLeague);
 // 이번에 실행하지 않은 리그의 상태는 유지
@@ -79,6 +81,6 @@ for (const s of previous.leagues || []) if (!leagueStatus.some((x) => x.id === s
 for (const key of Object.keys(players)) if (now - players[key].at > 30 * 86400000) delete players[key];
 await writeJson(dataPath('matches.json'), { updatedAt: new Date(now).toISOString(), sample: false, leagues: leagueStatus, matches });
 await writeJson(dataPath('history.json'), history);
-await writeJson(dataPath('cache.json'), { usage: api.usage, players, commentary });
+await writeJson(dataPath('cache.json'), { usage: api.usage, players, commentary, news });
 console.log(`\n분석 ${matches.length}경기 저장. 오늘 API 사용량: ${JSON.stringify(api.usage)}`);
 if (!leagueStatus.some((s) => s.ok)) process.exit(1);
