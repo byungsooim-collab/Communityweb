@@ -1,8 +1,8 @@
-name: 인기글 수집 및 배포
+name: 경기 분석 갱신 및 Firebase 배포
 
 on:
   schedule:
-    - cron: '7,37 * * * *' # 30분마다
+    - cron: '17 0,8,16 * * *' # 하루 3회 (KST 09:17, 17:17, 01:17) — 무료 API 한도에 맞춘 주기
   workflow_dispatch:
   push:
     branches: [main]
@@ -10,8 +10,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: update
@@ -20,9 +18,6 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -30,19 +25,22 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: 수집
+      - run: npm test
+      - name: 데이터 수집과 분석
+        env:
+          APISPORTS_KEY: ${{ secrets.APISPORTS_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: npm run collect
-      - name: 수집 데이터 커밋
+      - name: 분석 데이터 커밋
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/posts.json
-          git diff --cached --quiet || git commit -m "data: 인기글 갱신"
+          git add data
+          git diff --cached --quiet || git commit -m "data: 경기 분석 갱신"
           git push
       - run: npm run build
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          path: dist
-      - id: deploy
-        uses: actions/deploy-pages@v4
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: ${{ vars.FIREBASE_PROJECT_ID }}
+          channelId: live

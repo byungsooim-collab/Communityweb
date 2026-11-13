@@ -1,0 +1,5150 @@
+{
+ "updatedAt": "2026-11-13T02:24:40.599Z",
+ "sample": true,
+ "leagues": [
+  {
+   "id": "sample-football",
+   "name": "샘플 축구 리그",
+   "sport": "football",
+   "season": "샘플",
+   "ok": true,
+   "finished": 104,
+   "upcoming": 8,
+   "backtest": {
+    "total": 74,
+    "hit": 29,
+    "highTotal": 36,
+    "highHit": 18
+   }
+  },
+  {
+   "id": "sample-basketball",
+   "name": "샘플 농구 리그",
+   "sport": "basketball",
+   "season": "샘플",
+   "ok": true,
+   "finished": 54,
+   "upcoming": 6,
+   "backtest": {
+    "total": 24,
+    "hit": 21,
+    "highTotal": 10,
+    "highHit": 10
+   }
+  },
+  {
+   "id": "sample-baseball",
+   "name": "샘플 야구 리그",
+   "sport": "baseball",
+   "season": "샘플",
+   "ok": true,
+   "finished": 54,
+   "upcoming": 6,
+   "backtest": {
+    "total": 24,
+    "hit": 17,
+    "highTotal": 0,
+    "highHit": 0
+   }
+  },
+  {
+   "id": "sample-volleyball",
+   "name": "샘플 배구 리그",
+   "sport": "volleyball",
+   "season": "샘플",
+   "ok": true,
+   "finished": 20,
+   "upcoming": 4,
+   "backtest": null
+  }
+ ],
+ "matches": [
+  {
+   "id": "sample-football-1104",
+   "sport": "football",
+   "leagueId": "sample-football",
+   "leagueName": "샘플 축구 리그",
+   "date": "2026-11-13T12:00:40.599Z",
+   "home": {
+    "name": "낙동 알비온",
+    "rank": 8,
+    "restDays": 4,
+    "record": {
+     "played": 26,
+     "win": 5,
+     "draw": 8,
+     "loss": 13,
+     "gf": 24,
+     "ga": 40,
+     "home": {
+      "played": 12,
+      "win": 4,
+      "draw": 5,
+      "loss": 3
+     },
+     "away": {
+      "played": 14,
+      "win": 1,
+      "draw": 3,
+      "loss": 10
+     },
+     "gfPerGame": 0.92,
+     "gaPerGame": 1.54
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T08:24:40.599Z",
+      "home": true,
+      "opponent": "백두 로버스",
+      "gf": 4,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-09T06:24:40.599Z",
+      "home": true,
+      "opponent": "설악 타운",
+      "gf": 0,
+      "ga": 0,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T04:24:40.599Z",
+      "home": true,
+      "opponent": "한강 FC",
+      "gf": 2,
+      "ga": 4,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-05T02:24:40.599Z",
+      "home": false,
+      "opponent": "금강 원더러스",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-01T06:24:40.599Z",
+      "home": true,
+      "opponent": "동해 시티",
+      "gf": 2,
+      "ga": 2,
+      "result": "draw"
+     }
+    ],
+    "last5Summary": {
+     "win": 1,
+     "draw": 3,
+     "loss": 1,
+     "gfPerGame": 1.8,
+     "gaPerGame": 1.4
+    },
+    "lastPlayed": "2026-11-09T08:24:40.599Z"
+   },
+   "away": {
+    "name": "금강 원더러스",
+    "rank": 3,
+    "restDays": 8,
+    "record": {
+     "played": 27,
+     "win": 13,
+     "draw": 4,
+     "loss": 10,
+     "gf": 36,
+     "ga": 40,
+     "home": {
+      "played": 14,
+      "win": 9,
+      "draw": 1,
+      "loss": 4
+     },
+     "away": {
+      "played": 13,
+      "win": 4,
+      "draw": 3,
+      "loss": 6
+     },
+     "gfPerGame": 1.33,
+     "gaPerGame": 1.48
+    },
+    "last5": [
+     {
+      "date": "2026-11-05T02:24:40.599Z",
+      "home": true,
+      "opponent": "낙동 알비온",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-01T08:24:40.599Z",
+      "home": false,
+      "opponent": "설악 타운",
+      "gf": 1,
+      "ga": 2,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-28T04:24:40.599Z",
+      "home": false,
+      "opponent": "설악 타운",
+      "gf": 3,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-28T02:24:40.599Z",
+      "home": false,
+      "opponent": "한강 FC",
+      "gf": 2,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-24T08:24:40.599Z",
+      "home": false,
+      "opponent": "동해 시티",
+      "gf": 0,
+      "ga": 3,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 1,
+     "loss": 2,
+     "gfPerGame": 1.4,
+     "gaPerGame": 1.6
+    },
+    "lastPlayed": "2026-11-05T02:24:40.599Z"
+   },
+   "teamCount": 8,
+   "prediction": {
+    "pHome": 0.387,
+    "pDraw": 0.271,
+    "pAway": 0.341,
+    "expected": {
+     "home": 1.29,
+     "away": 1.19
+    },
+    "over25": 0.45,
+    "likelyScore": "1-1",
+    "pick": "home",
+    "confidence": "low",
+    "sample": 104,
+    "lowData": false
+   },
+   "injuryImpact": {
+    "homeAttack": 0.75,
+    "homeDefense": 1,
+    "awayAttack": 0.95,
+    "awayDefense": 1,
+    "before": {
+     "pHome": 0.483,
+     "pDraw": 0.238,
+     "pAway": 0.28
+    }
+   },
+   "injuries": {
+    "available": true,
+    "home": [
+     {
+      "playerId": 9001,
+      "name": "김샘플",
+      "teamId": 8,
+      "type": "Missing Fixture",
+      "reason": "햄스트링 부상",
+      "stats": {
+       "position": "Attacker",
+       "appearances": 11,
+       "starts": 10,
+       "minutes": 860,
+       "rating": 7.42,
+       "goals": 7,
+       "assists": 3
+      }
+     },
+     {
+      "playerId": 9002,
+      "name": "이가상",
+      "teamId": 8,
+      "type": "Missing Fixture",
+      "reason": "무릎 부상",
+      "stats": {
+       "position": "Defender",
+       "appearances": 12,
+       "starts": 12,
+       "minutes": 1080,
+       "rating": 7.05,
+       "goals": 0,
+       "assists": 1
+      }
+     }
+    ],
+    "away": [
+     {
+      "playerId": 9003,
+      "name": "박예시",
+      "teamId": 6,
+      "type": "Questionable",
+      "reason": "발목 염좌",
+      "stats": {
+       "position": "Midfielder",
+       "appearances": 9,
+       "starts": 6,
+       "minutes": 540,
+       "rating": 6.88,
+       "goals": 2,
+       "assists": 4
+      }
+     }
+    ]
+   },
+   "h2h": [
+    {
+     "date": "2026-11-05T02:24:40.599Z",
+     "home": "금강 원더러스",
+     "away": "낙동 알비온",
+     "score": {
+      "home": 1,
+      "away": 1
+     }
+    },
+    {
+     "date": "2026-09-18T08:24:40.599Z",
+     "home": "금강 원더러스",
+     "away": "낙동 알비온",
+     "score": {
+      "home": 1,
+      "away": 0
+     }
+    },
+    {
+     "date": "2026-09-10T06:24:40.599Z",
+     "home": "낙동 알비온",
+     "away": "금강 원더러스",
+     "score": {
+      "home": 1,
+      "away": 0
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-basketball-1054",
+   "sport": "basketball",
+   "leagueId": "sample-basketball",
+   "leagueName": "샘플 농구 리그",
+   "date": "2026-11-13T12:00:40.599Z",
+   "home": {
+    "name": "소백 나이츠",
+    "rank": 5,
+    "restDays": 3,
+    "record": {
+     "played": 17,
+     "win": 4,
+     "draw": 0,
+     "loss": 13,
+     "gf": 1701,
+     "ga": 1985,
+     "home": {
+      "played": 9,
+      "win": 2,
+      "draw": 0,
+      "loss": 7
+     },
+     "away": {
+      "played": 8,
+      "win": 2,
+      "draw": 0,
+      "loss": 6
+     },
+     "gfPerGame": 100.06,
+     "gaPerGame": 116.76
+    },
+    "last5": [
+     {
+      "date": "2026-11-10T06:24:40.599Z",
+      "home": false,
+      "opponent": "영산 썬더",
+      "gf": 97,
+      "ga": 104,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T02:24:40.599Z",
+      "home": false,
+      "opponent": "한라 스톰",
+      "gf": 93,
+      "ga": 78,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T02:24:40.599Z",
+      "home": true,
+      "opponent": "한라 스톰",
+      "gf": 124,
+      "ga": 105,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-29T06:24:40.599Z",
+      "home": false,
+      "opponent": "북악 호크스",
+      "gf": 115,
+      "ga": 149,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-29T04:24:40.599Z",
+      "home": false,
+      "opponent": "서해 웨이브",
+      "gf": 109,
+      "ga": 131,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 107.6,
+     "gaPerGame": 113.4
+    },
+    "lastPlayed": "2026-11-10T06:24:40.599Z"
+   },
+   "away": {
+    "name": "태백 베어스",
+    "rank": 3,
+    "restDays": 3,
+    "record": {
+     "played": 16,
+     "win": 10,
+     "draw": 0,
+     "loss": 6,
+     "gf": 1857,
+     "ga": 1778,
+     "home": {
+      "played": 8,
+      "win": 5,
+      "draw": 0,
+      "loss": 3
+     },
+     "away": {
+      "played": 8,
+      "win": 5,
+      "draw": 0,
+      "loss": 3
+     },
+     "gfPerGame": 116.06,
+     "gaPerGame": 111.13
+    },
+    "last5": [
+     {
+      "date": "2026-11-10T04:24:40.599Z",
+      "home": false,
+      "opponent": "서해 웨이브",
+      "gf": 100,
+      "ga": 111,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T06:24:40.599Z",
+      "home": false,
+      "opponent": "북악 호크스",
+      "gf": 95,
+      "ga": 129,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-04T06:24:40.599Z",
+      "home": true,
+      "opponent": "영산 썬더",
+      "gf": 121,
+      "ga": 117,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T06:24:40.599Z",
+      "home": false,
+      "opponent": "영산 썬더",
+      "gf": 121,
+      "ga": 112,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": true,
+      "opponent": "북악 호크스",
+      "gf": 118,
+      "ga": 142,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 111,
+     "gaPerGame": 122.2
+    },
+    "lastPlayed": "2026-11-10T04:24:40.599Z"
+   },
+   "teamCount": 6,
+   "prediction": {
+    "pHome": 0.356,
+    "pDraw": 0,
+    "pAway": 0.644,
+    "rating": {
+     "home": 1386,
+     "away": 1549
+    },
+    "pick": "away",
+    "confidence": "mid",
+    "sample": 54,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-09-23T02:24:40.599Z",
+     "home": "소백 나이츠",
+     "away": "태백 베어스",
+     "score": {
+      "home": 88,
+      "away": 110
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-baseball-1054",
+   "sport": "baseball",
+   "leagueId": "sample-baseball",
+   "leagueName": "샘플 야구 리그",
+   "date": "2026-11-13T12:00:40.599Z",
+   "home": {
+    "name": "가람 타이거즈",
+    "rank": 2,
+    "restDays": 2,
+    "record": {
+     "played": 18,
+     "win": 13,
+     "draw": 0,
+     "loss": 5,
+     "gf": 93,
+     "ga": 64,
+     "home": {
+      "played": 8,
+      "win": 6,
+      "draw": 0,
+      "loss": 2
+     },
+     "away": {
+      "played": 10,
+      "win": 7,
+      "draw": 0,
+      "loss": 3
+     },
+     "gfPerGame": 5.17,
+     "gaPerGame": 3.56
+    },
+    "last5": [
+     {
+      "date": "2026-11-11T06:24:40.599Z",
+      "home": false,
+      "opponent": "누리 랜더스",
+      "gf": 5,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-11T02:24:40.599Z",
+      "home": false,
+      "opponent": "다솜 라이온즈",
+      "gf": 3,
+      "ga": 4,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-05T06:24:40.599Z",
+      "home": false,
+      "opponent": "마루 이글스",
+      "gf": 7,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T06:24:40.599Z",
+      "home": false,
+      "opponent": "미리내 스타즈",
+      "gf": 4,
+      "ga": 9,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-30T06:24:40.599Z",
+      "home": true,
+      "opponent": "다솜 라이온즈",
+      "gf": 7,
+      "ga": 2,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 3,
+     "draw": 0,
+     "loss": 2,
+     "gfPerGame": 5.2,
+     "gaPerGame": 3.4
+    },
+    "lastPlayed": "2026-11-11T06:24:40.599Z"
+   },
+   "away": {
+    "name": "다솜 라이온즈",
+    "rank": 4,
+    "restDays": 2,
+    "record": {
+     "played": 18,
+     "win": 8,
+     "draw": 0,
+     "loss": 10,
+     "gf": 83,
+     "ga": 82,
+     "home": {
+      "played": 10,
+      "win": 6,
+      "draw": 0,
+      "loss": 4
+     },
+     "away": {
+      "played": 8,
+      "win": 2,
+      "draw": 0,
+      "loss": 6
+     },
+     "gfPerGame": 4.61,
+     "gaPerGame": 4.56
+    },
+    "last5": [
+     {
+      "date": "2026-11-11T02:24:40.599Z",
+      "home": true,
+      "opponent": "가람 타이거즈",
+      "gf": 4,
+      "ga": 3,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-09T06:24:40.599Z",
+      "home": true,
+      "opponent": "새벽 위즈",
+      "gf": 5,
+      "ga": 4,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": false,
+      "opponent": "마루 이글스",
+      "gf": 6,
+      "ga": 7,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-09T02:24:40.599Z",
+      "home": true,
+      "opponent": "마루 이글스",
+      "gf": 3,
+      "ga": 5,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T02:24:40.599Z",
+      "home": true,
+      "opponent": "누리 랜더스",
+      "gf": 8,
+      "ga": 5,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 3,
+     "draw": 0,
+     "loss": 2,
+     "gfPerGame": 5.2,
+     "gaPerGame": 4.8
+    },
+    "lastPlayed": "2026-11-11T02:24:40.599Z"
+   },
+   "teamCount": 6,
+   "prediction": {
+    "pHome": 0.59,
+    "pDraw": 0,
+    "pAway": 0.41,
+    "rating": {
+     "home": 1532,
+     "away": 1493
+    },
+    "pick": "home",
+    "confidence": "mid",
+    "sample": 54,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-11-11T02:24:40.599Z",
+     "home": "다솜 라이온즈",
+     "away": "가람 타이거즈",
+     "score": {
+      "home": 4,
+      "away": 3
+     }
+    },
+    {
+     "date": "2026-10-30T06:24:40.599Z",
+     "home": "가람 타이거즈",
+     "away": "다솜 라이온즈",
+     "score": {
+      "home": 7,
+      "away": 2
+     }
+    },
+    {
+     "date": "2026-10-14T02:24:40.599Z",
+     "home": "다솜 라이온즈",
+     "away": "가람 타이거즈",
+     "score": {
+      "home": 4,
+      "away": 8
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-volleyball-1020",
+   "sport": "volleyball",
+   "leagueId": "sample-volleyball",
+   "leagueName": "샘플 배구 리그",
+   "date": "2026-11-13T12:00:40.599Z",
+   "home": {
+    "name": "바람 스파이커스",
+    "rank": 1,
+    "restDays": 8,
+    "record": {
+     "played": 10,
+     "win": 7,
+     "draw": 0,
+     "loss": 3,
+     "gf": 25,
+     "ga": 17,
+     "home": {
+      "played": 5,
+      "win": 2,
+      "draw": 0,
+      "loss": 3
+     },
+     "away": {
+      "played": 5,
+      "win": 5,
+      "draw": 0,
+      "loss": 0
+     },
+     "gfPerGame": 2.5,
+     "gaPerGame": 1.7
+    },
+    "last5": [
+     {
+      "date": "2026-11-05T04:24:40.599Z",
+      "home": false,
+      "opponent": "아라 점퍼스",
+      "gf": 3,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-05T02:24:40.599Z",
+      "home": false,
+      "opponent": "노을 블루윙스",
+      "gf": 3,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T02:24:40.599Z",
+      "home": false,
+      "opponent": "온새 스카이",
+      "gf": 3,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-28T04:24:40.599Z",
+      "home": true,
+      "opponent": "노을 블루윙스",
+      "gf": 2,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-24T04:24:40.599Z",
+      "home": true,
+      "opponent": "온새 스카이",
+      "gf": 3,
+      "ga": 2,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 4,
+     "draw": 0,
+     "loss": 1,
+     "gfPerGame": 2.8,
+     "gaPerGame": 1.8
+    },
+    "lastPlayed": "2026-11-05T04:24:40.599Z"
+   },
+   "away": {
+    "name": "온새 스카이",
+    "rank": 4,
+    "restDays": 12,
+    "record": {
+     "played": 10,
+     "win": 2,
+     "draw": 0,
+     "loss": 8,
+     "gf": 14,
+     "ga": 26,
+     "home": {
+      "played": 6,
+      "win": 2,
+      "draw": 0,
+      "loss": 4
+     },
+     "away": {
+      "played": 4,
+      "win": 0,
+      "draw": 0,
+      "loss": 4
+     },
+     "gfPerGame": 1.4,
+     "gaPerGame": 2.6
+    },
+    "last5": [
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": true,
+      "opponent": "노을 블루윙스",
+      "gf": 3,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T02:24:40.599Z",
+      "home": true,
+      "opponent": "바람 스파이커스",
+      "gf": 2,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-28T02:24:40.599Z",
+      "home": true,
+      "opponent": "아라 점퍼스",
+      "gf": 3,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-24T04:24:40.599Z",
+      "home": false,
+      "opponent": "바람 스파이커스",
+      "gf": 2,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-24T02:24:40.599Z",
+      "home": false,
+      "opponent": "노을 블루윙스",
+      "gf": 1,
+      "ga": 3,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 2.2,
+     "gaPerGame": 2.2
+    },
+    "lastPlayed": "2026-11-01T04:24:40.599Z"
+   },
+   "teamCount": 4,
+   "prediction": {
+    "pHome": 0.744,
+    "pDraw": 0,
+    "pAway": 0.256,
+    "rating": {
+     "home": 1568,
+     "away": 1422
+    },
+    "pick": "home",
+    "confidence": "high",
+    "sample": 20,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-11-01T02:24:40.599Z",
+     "home": "온새 스카이",
+     "away": "바람 스파이커스",
+     "score": {
+      "home": 2,
+      "away": 3
+     }
+    },
+    {
+     "date": "2026-10-24T04:24:40.599Z",
+     "home": "바람 스파이커스",
+     "away": "온새 스카이",
+     "score": {
+      "home": 3,
+      "away": 2
+     }
+    },
+    {
+     "date": "2026-10-12T02:24:40.599Z",
+     "home": "온새 스카이",
+     "away": "바람 스파이커스",
+     "score": {
+      "home": 0,
+      "away": 3
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-football-1105",
+   "sport": "football",
+   "leagueId": "sample-football",
+   "leagueName": "샘플 축구 리그",
+   "date": "2026-11-13T14:00:40.599Z",
+   "home": {
+    "name": "동해 시티",
+    "rank": 2,
+    "restDays": 8,
+    "record": {
+     "played": 27,
+     "win": 11,
+     "draw": 10,
+     "loss": 6,
+     "gf": 32,
+     "ga": 25,
+     "home": {
+      "played": 13,
+      "win": 7,
+      "draw": 5,
+      "loss": 1
+     },
+     "away": {
+      "played": 14,
+      "win": 4,
+      "draw": 5,
+      "loss": 5
+     },
+     "gfPerGame": 1.19,
+     "gaPerGame": 0.93
+    },
+    "last5": [
+     {
+      "date": "2026-11-05T08:24:40.599Z",
+      "home": false,
+      "opponent": "한강 FC",
+      "gf": 0,
+      "ga": 0,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-01T06:24:40.599Z",
+      "home": false,
+      "opponent": "낙동 알비온",
+      "gf": 2,
+      "ga": 2,
+      "result": "draw"
+     },
+     {
+      "date": "2026-10-24T08:24:40.599Z",
+      "home": true,
+      "opponent": "금강 원더러스",
+      "gf": 3,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-24T06:24:40.599Z",
+      "home": false,
+      "opponent": "백두 로버스",
+      "gf": 2,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-24T04:24:40.599Z",
+      "home": false,
+      "opponent": "남산 유나이티드",
+      "gf": 1,
+      "ga": 0,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 3,
+     "draw": 2,
+     "loss": 0,
+     "gfPerGame": 1.6,
+     "gaPerGame": 0.4
+    },
+    "lastPlayed": "2026-11-05T08:24:40.599Z"
+   },
+   "away": {
+    "name": "백두 로버스",
+    "rank": 5,
+    "restDays": 4,
+    "record": {
+     "played": 25,
+     "win": 8,
+     "draw": 7,
+     "loss": 10,
+     "gf": 36,
+     "ga": 34,
+     "home": {
+      "played": 13,
+      "win": 5,
+      "draw": 5,
+      "loss": 3
+     },
+     "away": {
+      "played": 12,
+      "win": 3,
+      "draw": 2,
+      "loss": 7
+     },
+     "gfPerGame": 1.44,
+     "gaPerGame": 1.36
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T08:24:40.599Z",
+      "home": false,
+      "opponent": "낙동 알비온",
+      "gf": 0,
+      "ga": 4,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": true,
+      "opponent": "한강 FC",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-09T02:24:40.599Z",
+      "home": true,
+      "opponent": "탐라 애슬레틱",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T06:24:40.599Z",
+      "home": true,
+      "opponent": "설악 타운",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-10-28T08:24:40.599Z",
+      "home": true,
+      "opponent": "낙동 알비온",
+      "gf": 3,
+      "ga": 0,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 1,
+     "draw": 3,
+     "loss": 1,
+     "gfPerGame": 1.2,
+     "gaPerGame": 1.4
+    },
+    "lastPlayed": "2026-11-09T08:24:40.599Z"
+   },
+   "teamCount": 8,
+   "prediction": {
+    "pHome": 0.585,
+    "pDraw": 0.261,
+    "pAway": 0.154,
+    "expected": {
+     "home": 1.5,
+     "away": 0.62
+    },
+    "over25": 0.357,
+    "likelyScore": "1-0",
+    "pick": "home",
+    "confidence": "high",
+    "sample": 104,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": true,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-10-24T06:24:40.599Z",
+     "home": "백두 로버스",
+     "away": "동해 시티",
+     "score": {
+      "home": 0,
+      "away": 2
+     }
+    },
+    {
+     "date": "2026-09-30T02:24:40.599Z",
+     "home": "백두 로버스",
+     "away": "동해 시티",
+     "score": {
+      "home": 3,
+      "away": 1
+     }
+    },
+    {
+     "date": "2026-09-26T02:24:40.599Z",
+     "home": "동해 시티",
+     "away": "백두 로버스",
+     "score": {
+      "home": 1,
+      "away": 1
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-basketball-1055",
+   "sport": "basketball",
+   "leagueId": "sample-basketball",
+   "leagueName": "샘플 농구 리그",
+   "date": "2026-11-13T14:00:40.599Z",
+   "home": {
+    "name": "태백 베어스",
+    "rank": 3,
+    "restDays": 3,
+    "record": {
+     "played": 16,
+     "win": 10,
+     "draw": 0,
+     "loss": 6,
+     "gf": 1857,
+     "ga": 1778,
+     "home": {
+      "played": 8,
+      "win": 5,
+      "draw": 0,
+      "loss": 3
+     },
+     "away": {
+      "played": 8,
+      "win": 5,
+      "draw": 0,
+      "loss": 3
+     },
+     "gfPerGame": 116.06,
+     "gaPerGame": 111.13
+    },
+    "last5": [
+     {
+      "date": "2026-11-10T04:24:40.599Z",
+      "home": false,
+      "opponent": "서해 웨이브",
+      "gf": 100,
+      "ga": 111,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T06:24:40.599Z",
+      "home": false,
+      "opponent": "북악 호크스",
+      "gf": 95,
+      "ga": 129,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-04T06:24:40.599Z",
+      "home": true,
+      "opponent": "영산 썬더",
+      "gf": 121,
+      "ga": 117,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T06:24:40.599Z",
+      "home": false,
+      "opponent": "영산 썬더",
+      "gf": 121,
+      "ga": 112,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": true,
+      "opponent": "북악 호크스",
+      "gf": 118,
+      "ga": 142,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 111,
+     "gaPerGame": 122.2
+    },
+    "lastPlayed": "2026-11-10T04:24:40.599Z"
+   },
+   "away": {
+    "name": "소백 나이츠",
+    "rank": 5,
+    "restDays": 3,
+    "record": {
+     "played": 17,
+     "win": 4,
+     "draw": 0,
+     "loss": 13,
+     "gf": 1701,
+     "ga": 1985,
+     "home": {
+      "played": 9,
+      "win": 2,
+      "draw": 0,
+      "loss": 7
+     },
+     "away": {
+      "played": 8,
+      "win": 2,
+      "draw": 0,
+      "loss": 6
+     },
+     "gfPerGame": 100.06,
+     "gaPerGame": 116.76
+    },
+    "last5": [
+     {
+      "date": "2026-11-10T06:24:40.599Z",
+      "home": false,
+      "opponent": "영산 썬더",
+      "gf": 97,
+      "ga": 104,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T02:24:40.599Z",
+      "home": false,
+      "opponent": "한라 스톰",
+      "gf": 93,
+      "ga": 78,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T02:24:40.599Z",
+      "home": true,
+      "opponent": "한라 스톰",
+      "gf": 124,
+      "ga": 105,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-29T06:24:40.599Z",
+      "home": false,
+      "opponent": "북악 호크스",
+      "gf": 115,
+      "ga": 149,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-29T04:24:40.599Z",
+      "home": false,
+      "opponent": "서해 웨이브",
+      "gf": 109,
+      "ga": 131,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 107.6,
+     "gaPerGame": 113.4
+    },
+    "lastPlayed": "2026-11-10T06:24:40.599Z"
+   },
+   "teamCount": 6,
+   "prediction": {
+    "pHome": 0.783,
+    "pDraw": 0,
+    "pAway": 0.217,
+    "rating": {
+     "home": 1549,
+     "away": 1386
+    },
+    "pick": "home",
+    "confidence": "high",
+    "sample": 54,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-09-23T02:24:40.599Z",
+     "home": "소백 나이츠",
+     "away": "태백 베어스",
+     "score": {
+      "home": 88,
+      "away": 110
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-baseball-1055",
+   "sport": "baseball",
+   "leagueId": "sample-baseball",
+   "leagueName": "샘플 야구 리그",
+   "date": "2026-11-13T14:00:40.599Z",
+   "home": {
+    "name": "누리 랜더스",
+    "rank": 6,
+    "restDays": 2,
+    "record": {
+     "played": 18,
+     "win": 3,
+     "draw": 0,
+     "loss": 15,
+     "gf": 51,
+     "ga": 101,
+     "home": {
+      "played": 9,
+      "win": 2,
+      "draw": 0,
+      "loss": 7
+     },
+     "away": {
+      "played": 9,
+      "win": 1,
+      "draw": 0,
+      "loss": 8
+     },
+     "gfPerGame": 2.83,
+     "gaPerGame": 5.61
+    },
+    "last5": [
+     {
+      "date": "2026-11-11T06:24:40.599Z",
+      "home": true,
+      "opponent": "가람 타이거즈",
+      "gf": 1,
+      "ga": 5,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-11T04:24:40.599Z",
+      "home": false,
+      "opponent": "마루 이글스",
+      "gf": 5,
+      "ga": 10,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T06:24:40.599Z",
+      "home": false,
+      "opponent": "새벽 위즈",
+      "gf": 2,
+      "ga": 5,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T02:24:40.599Z",
+      "home": false,
+      "opponent": "다솜 라이온즈",
+      "gf": 5,
+      "ga": 8,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-05T02:24:40.599Z",
+      "home": false,
+      "opponent": "마루 이글스",
+      "gf": 2,
+      "ga": 5,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 0,
+     "draw": 0,
+     "loss": 5,
+     "gfPerGame": 3,
+     "gaPerGame": 6.6
+    },
+    "lastPlayed": "2026-11-11T06:24:40.599Z"
+   },
+   "away": {
+    "name": "새벽 위즈",
+    "rank": 5,
+    "restDays": 4,
+    "record": {
+     "played": 18,
+     "win": 6,
+     "draw": 0,
+     "loss": 12,
+     "gf": 64,
+     "ga": 101,
+     "home": {
+      "played": 9,
+      "win": 5,
+      "draw": 0,
+      "loss": 4
+     },
+     "away": {
+      "played": 9,
+      "win": 1,
+      "draw": 0,
+      "loss": 8
+     },
+     "gfPerGame": 3.56,
+     "gaPerGame": 5.61
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T06:24:40.599Z",
+      "home": false,
+      "opponent": "다솜 라이온즈",
+      "gf": 4,
+      "ga": 5,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T06:24:40.599Z",
+      "home": true,
+      "opponent": "누리 랜더스",
+      "gf": 5,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-07T04:24:40.599Z",
+      "home": false,
+      "opponent": "미리내 스타즈",
+      "gf": 0,
+      "ga": 8,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-03T02:24:40.599Z",
+      "home": false,
+      "opponent": "미리내 스타즈",
+      "gf": 2,
+      "ga": 8,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-30T04:24:40.599Z",
+      "home": false,
+      "opponent": "마루 이글스",
+      "gf": 3,
+      "ga": 2,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 2.8,
+     "gaPerGame": 5
+    },
+    "lastPlayed": "2026-11-09T06:24:40.599Z"
+   },
+   "teamCount": 6,
+   "prediction": {
+    "pHome": 0.496,
+    "pDraw": 0,
+    "pAway": 0.504,
+    "rating": {
+     "home": 1447,
+     "away": 1474
+    },
+    "pick": "away",
+    "confidence": "low",
+    "sample": 54,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-11-07T06:24:40.599Z",
+     "home": "새벽 위즈",
+     "away": "누리 랜더스",
+     "score": {
+      "home": 5,
+      "away": 2
+     }
+    },
+    {
+     "date": "2026-10-14T06:24:40.599Z",
+     "home": "새벽 위즈",
+     "away": "누리 랜더스",
+     "score": {
+      "home": 6,
+      "away": 1
+     }
+    },
+    {
+     "date": "2026-10-10T04:24:40.599Z",
+     "home": "누리 랜더스",
+     "away": "새벽 위즈",
+     "score": {
+      "home": 4,
+      "away": 2
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-volleyball-1021",
+   "sport": "volleyball",
+   "leagueId": "sample-volleyball",
+   "leagueName": "샘플 배구 리그",
+   "date": "2026-11-13T14:00:40.599Z",
+   "home": {
+    "name": "아라 점퍼스",
+    "rank": 3,
+    "restDays": 4,
+    "record": {
+     "played": 11,
+     "win": 6,
+     "draw": 0,
+     "loss": 5,
+     "gf": 21,
+     "ga": 20,
+     "home": {
+      "played": 5,
+      "win": 3,
+      "draw": 0,
+      "loss": 2
+     },
+     "away": {
+      "played": 6,
+      "win": 3,
+      "draw": 0,
+      "loss": 3
+     },
+     "gfPerGame": 1.91,
+     "gaPerGame": 1.82
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": false,
+      "opponent": "노을 블루윙스",
+      "gf": 0,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-09T02:24:40.599Z",
+      "home": false,
+      "opponent": "노을 블루윙스",
+      "gf": 3,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-05T04:24:40.599Z",
+      "home": true,
+      "opponent": "바람 스파이커스",
+      "gf": 1,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-28T02:24:40.599Z",
+      "home": false,
+      "opponent": "온새 스카이",
+      "gf": 0,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-20T04:24:40.599Z",
+      "home": true,
+      "opponent": "노을 블루윙스",
+      "gf": 3,
+      "ga": 0,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 1.4,
+     "gaPerGame": 1.8
+    },
+    "lastPlayed": "2026-11-09T04:24:40.599Z"
+   },
+   "away": {
+    "name": "노을 블루윙스",
+    "rank": 2,
+    "restDays": 4,
+    "record": {
+     "played": 9,
+     "win": 5,
+     "draw": 0,
+     "loss": 4,
+     "gf": 18,
+     "ga": 15,
+     "home": {
+      "played": 4,
+      "win": 2,
+      "draw": 0,
+      "loss": 2
+     },
+     "away": {
+      "played": 5,
+      "win": 3,
+      "draw": 0,
+      "loss": 2
+     },
+     "gfPerGame": 2,
+     "gaPerGame": 1.67
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": true,
+      "opponent": "아라 점퍼스",
+      "gf": 3,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-09T02:24:40.599Z",
+      "home": true,
+      "opponent": "아라 점퍼스",
+      "gf": 0,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-05T02:24:40.599Z",
+      "home": true,
+      "opponent": "바람 스파이커스",
+      "gf": 1,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": false,
+      "opponent": "온새 스카이",
+      "gf": 2,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-28T04:24:40.599Z",
+      "home": false,
+      "opponent": "바람 스파이커스",
+      "gf": 3,
+      "ga": 2,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 1.8,
+     "gaPerGame": 2.2
+    },
+    "lastPlayed": "2026-11-09T04:24:40.599Z"
+   },
+   "teamCount": 4,
+   "prediction": {
+    "pHome": 0.545,
+    "pDraw": 0,
+    "pAway": 0.455,
+    "rating": {
+     "home": 1501,
+     "away": 1509
+    },
+    "pick": "home",
+    "confidence": "low",
+    "sample": 20,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-11-09T04:24:40.599Z",
+     "home": "노을 블루윙스",
+     "away": "아라 점퍼스",
+     "score": {
+      "home": 3,
+      "away": 0
+     }
+    },
+    {
+     "date": "2026-11-09T02:24:40.599Z",
+     "home": "노을 블루윙스",
+     "away": "아라 점퍼스",
+     "score": {
+      "home": 0,
+      "away": 3
+     }
+    },
+    {
+     "date": "2026-10-20T04:24:40.599Z",
+     "home": "아라 점퍼스",
+     "away": "노을 블루윙스",
+     "score": {
+      "home": 3,
+      "away": 0
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-football-1106",
+   "sport": "football",
+   "leagueId": "sample-football",
+   "leagueName": "샘플 축구 리그",
+   "date": "2026-11-13T16:00:40.599Z",
+   "home": {
+    "name": "백두 로버스",
+    "rank": 5,
+    "restDays": 4,
+    "record": {
+     "played": 25,
+     "win": 8,
+     "draw": 7,
+     "loss": 10,
+     "gf": 36,
+     "ga": 34,
+     "home": {
+      "played": 13,
+      "win": 5,
+      "draw": 5,
+      "loss": 3
+     },
+     "away": {
+      "played": 12,
+      "win": 3,
+      "draw": 2,
+      "loss": 7
+     },
+     "gfPerGame": 1.44,
+     "gaPerGame": 1.36
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T08:24:40.599Z",
+      "home": false,
+      "opponent": "낙동 알비온",
+      "gf": 0,
+      "ga": 4,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": true,
+      "opponent": "한강 FC",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-09T02:24:40.599Z",
+      "home": true,
+      "opponent": "탐라 애슬레틱",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T06:24:40.599Z",
+      "home": true,
+      "opponent": "설악 타운",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-10-28T08:24:40.599Z",
+      "home": true,
+      "opponent": "낙동 알비온",
+      "gf": 3,
+      "ga": 0,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 1,
+     "draw": 3,
+     "loss": 1,
+     "gfPerGame": 1.2,
+     "gaPerGame": 1.4
+    },
+    "lastPlayed": "2026-11-09T08:24:40.599Z"
+   },
+   "away": {
+    "name": "한강 FC",
+    "rank": 4,
+    "restDays": 4,
+    "record": {
+     "played": 24,
+     "win": 10,
+     "draw": 5,
+     "loss": 9,
+     "gf": 35,
+     "ga": 28,
+     "home": {
+      "played": 12,
+      "win": 5,
+      "draw": 3,
+      "loss": 4
+     },
+     "away": {
+      "played": 12,
+      "win": 5,
+      "draw": 2,
+      "loss": 5
+     },
+     "gfPerGame": 1.46,
+     "gaPerGame": 1.17
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": false,
+      "opponent": "백두 로버스",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T08:24:40.599Z",
+      "home": true,
+      "opponent": "동해 시티",
+      "gf": 0,
+      "ga": 0,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T04:24:40.599Z",
+      "home": false,
+      "opponent": "낙동 알비온",
+      "gf": 4,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": false,
+      "opponent": "탐라 애슬레틱",
+      "gf": 2,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T02:24:40.599Z",
+      "home": false,
+      "opponent": "설악 타운",
+      "gf": 3,
+      "ga": 1,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 3,
+     "draw": 2,
+     "loss": 0,
+     "gfPerGame": 2,
+     "gaPerGame": 1
+    },
+    "lastPlayed": "2026-11-09T04:24:40.599Z"
+   },
+   "teamCount": 8,
+   "prediction": {
+    "pHome": 0.345,
+    "pDraw": 0.261,
+    "pAway": 0.394,
+    "expected": {
+     "home": 1.27,
+     "away": 1.38
+    },
+    "over25": 0.494,
+    "likelyScore": "1-1",
+    "pick": "away",
+    "confidence": "low",
+    "sample": 104,
+    "lowData": false
+   },
+   "injuryImpact": {
+    "homeAttack": 1,
+    "homeDefense": 1,
+    "awayAttack": 0.985,
+    "awayDefense": 1,
+    "before": {
+     "pHome": 0.341,
+     "pDraw": 0.259,
+     "pAway": 0.4
+    }
+   },
+   "injuries": {
+    "available": true,
+    "home": [],
+    "away": [
+     {
+      "playerId": 9004,
+      "name": "최임의",
+      "teamId": 1,
+      "type": "Missing Fixture",
+      "reason": "경고 누적",
+      "stats": null
+     }
+    ]
+   },
+   "h2h": [
+    {
+     "date": "2026-11-09T04:24:40.599Z",
+     "home": "백두 로버스",
+     "away": "한강 FC",
+     "score": {
+      "home": 1,
+      "away": 1
+     }
+    },
+    {
+     "date": "2026-10-20T08:24:40.599Z",
+     "home": "한강 FC",
+     "away": "백두 로버스",
+     "score": {
+      "home": 0,
+      "away": 2
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-basketball-1056",
+   "sport": "basketball",
+   "leagueId": "sample-basketball",
+   "leagueName": "샘플 농구 리그",
+   "date": "2026-11-13T16:00:40.599Z",
+   "home": {
+    "name": "태백 베어스",
+    "rank": 3,
+    "restDays": 3,
+    "record": {
+     "played": 16,
+     "win": 10,
+     "draw": 0,
+     "loss": 6,
+     "gf": 1857,
+     "ga": 1778,
+     "home": {
+      "played": 8,
+      "win": 5,
+      "draw": 0,
+      "loss": 3
+     },
+     "away": {
+      "played": 8,
+      "win": 5,
+      "draw": 0,
+      "loss": 3
+     },
+     "gfPerGame": 116.06,
+     "gaPerGame": 111.13
+    },
+    "last5": [
+     {
+      "date": "2026-11-10T04:24:40.599Z",
+      "home": false,
+      "opponent": "서해 웨이브",
+      "gf": 100,
+      "ga": 111,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T06:24:40.599Z",
+      "home": false,
+      "opponent": "북악 호크스",
+      "gf": 95,
+      "ga": 129,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-04T06:24:40.599Z",
+      "home": true,
+      "opponent": "영산 썬더",
+      "gf": 121,
+      "ga": 117,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T06:24:40.599Z",
+      "home": false,
+      "opponent": "영산 썬더",
+      "gf": 121,
+      "ga": 112,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": true,
+      "opponent": "북악 호크스",
+      "gf": 118,
+      "ga": 142,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 111,
+     "gaPerGame": 122.2
+    },
+    "lastPlayed": "2026-11-10T04:24:40.599Z"
+   },
+   "away": {
+    "name": "소백 나이츠",
+    "rank": 5,
+    "restDays": 3,
+    "record": {
+     "played": 17,
+     "win": 4,
+     "draw": 0,
+     "loss": 13,
+     "gf": 1701,
+     "ga": 1985,
+     "home": {
+      "played": 9,
+      "win": 2,
+      "draw": 0,
+      "loss": 7
+     },
+     "away": {
+      "played": 8,
+      "win": 2,
+      "draw": 0,
+      "loss": 6
+     },
+     "gfPerGame": 100.06,
+     "gaPerGame": 116.76
+    },
+    "last5": [
+     {
+      "date": "2026-11-10T06:24:40.599Z",
+      "home": false,
+      "opponent": "영산 썬더",
+      "gf": 97,
+      "ga": 104,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T02:24:40.599Z",
+      "home": false,
+      "opponent": "한라 스톰",
+      "gf": 93,
+      "ga": 78,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T02:24:40.599Z",
+      "home": true,
+      "opponent": "한라 스톰",
+      "gf": 124,
+      "ga": 105,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-29T06:24:40.599Z",
+      "home": false,
+      "opponent": "북악 호크스",
+      "gf": 115,
+      "ga": 149,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-29T04:24:40.599Z",
+      "home": false,
+      "opponent": "서해 웨이브",
+      "gf": 109,
+      "ga": 131,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 107.6,
+     "gaPerGame": 113.4
+    },
+    "lastPlayed": "2026-11-10T06:24:40.599Z"
+   },
+   "teamCount": 6,
+   "prediction": {
+    "pHome": 0.783,
+    "pDraw": 0,
+    "pAway": 0.217,
+    "rating": {
+     "home": 1549,
+     "away": 1386
+    },
+    "pick": "home",
+    "confidence": "high",
+    "sample": 54,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-09-23T02:24:40.599Z",
+     "home": "소백 나이츠",
+     "away": "태백 베어스",
+     "score": {
+      "home": 88,
+      "away": 110
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-baseball-1056",
+   "sport": "baseball",
+   "leagueId": "sample-baseball",
+   "leagueName": "샘플 야구 리그",
+   "date": "2026-11-13T16:00:40.599Z",
+   "home": {
+    "name": "미리내 스타즈",
+    "rank": 1,
+    "restDays": 6,
+    "record": {
+     "played": 17,
+     "win": 13,
+     "draw": 0,
+     "loss": 4,
+     "gf": 103,
+     "ga": 53,
+     "home": {
+      "played": 8,
+      "win": 6,
+      "draw": 0,
+      "loss": 2
+     },
+     "away": {
+      "played": 9,
+      "win": 7,
+      "draw": 0,
+      "loss": 2
+     },
+     "gfPerGame": 6.06,
+     "gaPerGame": 3.12
+    },
+    "last5": [
+     {
+      "date": "2026-11-07T04:24:40.599Z",
+      "home": true,
+      "opponent": "새벽 위즈",
+      "gf": 8,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-05T04:24:40.599Z",
+      "home": false,
+      "opponent": "다솜 라이온즈",
+      "gf": 6,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-03T06:24:40.599Z",
+      "home": true,
+      "opponent": "누리 랜더스",
+      "gf": 7,
+      "ga": 5,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-03T02:24:40.599Z",
+      "home": true,
+      "opponent": "새벽 위즈",
+      "gf": 8,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T06:24:40.599Z",
+      "home": true,
+      "opponent": "가람 타이거즈",
+      "gf": 9,
+      "ga": 4,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 5,
+     "draw": 0,
+     "loss": 0,
+     "gfPerGame": 7.6,
+     "gaPerGame": 2.6
+    },
+    "lastPlayed": "2026-11-07T04:24:40.599Z"
+   },
+   "away": {
+    "name": "누리 랜더스",
+    "rank": 6,
+    "restDays": 2,
+    "record": {
+     "played": 18,
+     "win": 3,
+     "draw": 0,
+     "loss": 15,
+     "gf": 51,
+     "ga": 101,
+     "home": {
+      "played": 9,
+      "win": 2,
+      "draw": 0,
+      "loss": 7
+     },
+     "away": {
+      "played": 9,
+      "win": 1,
+      "draw": 0,
+      "loss": 8
+     },
+     "gfPerGame": 2.83,
+     "gaPerGame": 5.61
+    },
+    "last5": [
+     {
+      "date": "2026-11-11T06:24:40.599Z",
+      "home": true,
+      "opponent": "가람 타이거즈",
+      "gf": 1,
+      "ga": 5,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-11T04:24:40.599Z",
+      "home": false,
+      "opponent": "마루 이글스",
+      "gf": 5,
+      "ga": 10,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T06:24:40.599Z",
+      "home": false,
+      "opponent": "새벽 위즈",
+      "gf": 2,
+      "ga": 5,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T02:24:40.599Z",
+      "home": false,
+      "opponent": "다솜 라이온즈",
+      "gf": 5,
+      "ga": 8,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-05T02:24:40.599Z",
+      "home": false,
+      "opponent": "마루 이글스",
+      "gf": 2,
+      "ga": 5,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 0,
+     "draw": 0,
+     "loss": 5,
+     "gfPerGame": 3,
+     "gaPerGame": 6.6
+    },
+    "lastPlayed": "2026-11-11T06:24:40.599Z"
+   },
+   "teamCount": 6,
+   "prediction": {
+    "pHome": 0.669,
+    "pDraw": 0,
+    "pAway": 0.331,
+    "rating": {
+     "home": 1545,
+     "away": 1447
+    },
+    "pick": "home",
+    "confidence": "high",
+    "sample": 54,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-11-03T06:24:40.599Z",
+     "home": "미리내 스타즈",
+     "away": "누리 랜더스",
+     "score": {
+      "home": 7,
+      "away": 5
+     }
+    },
+    {
+     "date": "2026-10-22T06:24:40.599Z",
+     "home": "누리 랜더스",
+     "away": "미리내 스타즈",
+     "score": {
+      "home": 3,
+      "away": 8
+     }
+    },
+    {
+     "date": "2026-10-16T04:24:40.599Z",
+     "home": "누리 랜더스",
+     "away": "미리내 스타즈",
+     "score": {
+      "home": 2,
+      "away": 7
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-football-1107",
+   "sport": "football",
+   "leagueId": "sample-football",
+   "leagueName": "샘플 축구 리그",
+   "date": "2026-11-13T18:00:40.599Z",
+   "home": {
+    "name": "한강 FC",
+    "rank": 4,
+    "restDays": 4,
+    "record": {
+     "played": 24,
+     "win": 10,
+     "draw": 5,
+     "loss": 9,
+     "gf": 35,
+     "ga": 28,
+     "home": {
+      "played": 12,
+      "win": 5,
+      "draw": 3,
+      "loss": 4
+     },
+     "away": {
+      "played": 12,
+      "win": 5,
+      "draw": 2,
+      "loss": 5
+     },
+     "gfPerGame": 1.46,
+     "gaPerGame": 1.17
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": false,
+      "opponent": "백두 로버스",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T08:24:40.599Z",
+      "home": true,
+      "opponent": "동해 시티",
+      "gf": 0,
+      "ga": 0,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T04:24:40.599Z",
+      "home": false,
+      "opponent": "낙동 알비온",
+      "gf": 4,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": false,
+      "opponent": "탐라 애슬레틱",
+      "gf": 2,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T02:24:40.599Z",
+      "home": false,
+      "opponent": "설악 타운",
+      "gf": 3,
+      "ga": 1,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 3,
+     "draw": 2,
+     "loss": 0,
+     "gfPerGame": 2,
+     "gaPerGame": 1
+    },
+    "lastPlayed": "2026-11-09T04:24:40.599Z"
+   },
+   "away": {
+    "name": "백두 로버스",
+    "rank": 5,
+    "restDays": 4,
+    "record": {
+     "played": 25,
+     "win": 8,
+     "draw": 7,
+     "loss": 10,
+     "gf": 36,
+     "ga": 34,
+     "home": {
+      "played": 13,
+      "win": 5,
+      "draw": 5,
+      "loss": 3
+     },
+     "away": {
+      "played": 12,
+      "win": 3,
+      "draw": 2,
+      "loss": 7
+     },
+     "gfPerGame": 1.44,
+     "gaPerGame": 1.36
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T08:24:40.599Z",
+      "home": false,
+      "opponent": "낙동 알비온",
+      "gf": 0,
+      "ga": 4,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": true,
+      "opponent": "한강 FC",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-09T02:24:40.599Z",
+      "home": true,
+      "opponent": "탐라 애슬레틱",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T06:24:40.599Z",
+      "home": true,
+      "opponent": "설악 타운",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-10-28T08:24:40.599Z",
+      "home": true,
+      "opponent": "낙동 알비온",
+      "gf": 3,
+      "ga": 0,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 1,
+     "draw": 3,
+     "loss": 1,
+     "gfPerGame": 1.2,
+     "gaPerGame": 1.4
+    },
+    "lastPlayed": "2026-11-09T08:24:40.599Z"
+   },
+   "teamCount": 8,
+   "prediction": {
+    "pHome": 0.465,
+    "pDraw": 0.241,
+    "pAway": 0.294,
+    "expected": {
+     "home": 1.66,
+     "away": 1.27
+    },
+    "over25": 0.561,
+    "likelyScore": "1-1",
+    "pick": "home",
+    "confidence": "mid",
+    "sample": 104,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": true,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-11-09T04:24:40.599Z",
+     "home": "백두 로버스",
+     "away": "한강 FC",
+     "score": {
+      "home": 1,
+      "away": 1
+     }
+    },
+    {
+     "date": "2026-10-20T08:24:40.599Z",
+     "home": "한강 FC",
+     "away": "백두 로버스",
+     "score": {
+      "home": 0,
+      "away": 2
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-football-1108",
+   "sport": "football",
+   "leagueId": "sample-football",
+   "leagueName": "샘플 축구 리그",
+   "date": "2026-11-14T16:48:40.599Z",
+   "home": {
+    "name": "낙동 알비온",
+    "rank": 8,
+    "restDays": 5,
+    "record": {
+     "played": 26,
+     "win": 5,
+     "draw": 8,
+     "loss": 13,
+     "gf": 24,
+     "ga": 40,
+     "home": {
+      "played": 12,
+      "win": 4,
+      "draw": 5,
+      "loss": 3
+     },
+     "away": {
+      "played": 14,
+      "win": 1,
+      "draw": 3,
+      "loss": 10
+     },
+     "gfPerGame": 0.92,
+     "gaPerGame": 1.54
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T08:24:40.599Z",
+      "home": true,
+      "opponent": "백두 로버스",
+      "gf": 4,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-09T06:24:40.599Z",
+      "home": true,
+      "opponent": "설악 타운",
+      "gf": 0,
+      "ga": 0,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T04:24:40.599Z",
+      "home": true,
+      "opponent": "한강 FC",
+      "gf": 2,
+      "ga": 4,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-05T02:24:40.599Z",
+      "home": false,
+      "opponent": "금강 원더러스",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-01T06:24:40.599Z",
+      "home": true,
+      "opponent": "동해 시티",
+      "gf": 2,
+      "ga": 2,
+      "result": "draw"
+     }
+    ],
+    "last5Summary": {
+     "win": 1,
+     "draw": 3,
+     "loss": 1,
+     "gfPerGame": 1.8,
+     "gaPerGame": 1.4
+    },
+    "lastPlayed": "2026-11-09T08:24:40.599Z"
+   },
+   "away": {
+    "name": "탐라 애슬레틱",
+    "rank": 6,
+    "restDays": 5,
+    "record": {
+     "played": 25,
+     "win": 7,
+     "draw": 10,
+     "loss": 8,
+     "gf": 27,
+     "ga": 32,
+     "home": {
+      "played": 13,
+      "win": 5,
+      "draw": 5,
+      "loss": 3
+     },
+     "away": {
+      "played": 12,
+      "win": 2,
+      "draw": 5,
+      "loss": 5
+     },
+     "gfPerGame": 1.08,
+     "gaPerGame": 1.28
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T02:24:40.599Z",
+      "home": false,
+      "opponent": "백두 로버스",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": true,
+      "opponent": "한강 FC",
+      "gf": 1,
+      "ga": 2,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-20T04:24:40.599Z",
+      "home": true,
+      "opponent": "금강 원더러스",
+      "gf": 2,
+      "ga": 2,
+      "result": "draw"
+     },
+     {
+      "date": "2026-10-16T08:24:40.599Z",
+      "home": false,
+      "opponent": "남산 유나이티드",
+      "gf": 0,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-12T06:24:40.599Z",
+      "home": true,
+      "opponent": "남산 유나이티드",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     }
+    ],
+    "last5Summary": {
+     "win": 0,
+     "draw": 3,
+     "loss": 2,
+     "gfPerGame": 1,
+     "gaPerGame": 1.8
+    },
+    "lastPlayed": "2026-11-09T02:24:40.599Z"
+   },
+   "teamCount": 8,
+   "prediction": {
+    "pHome": 0.478,
+    "pDraw": 0.249,
+    "pAway": 0.273,
+    "expected": {
+     "home": 1.59,
+     "away": 1.14
+    },
+    "over25": 0.513,
+    "likelyScore": "1-1",
+    "pick": "home",
+    "confidence": "mid",
+    "sample": 104,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": true,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-10-08T06:24:40.599Z",
+     "home": "낙동 알비온",
+     "away": "탐라 애슬레틱",
+     "score": {
+      "home": 2,
+      "away": 2
+     }
+    },
+    {
+     "date": "2026-09-26T04:24:40.599Z",
+     "home": "탐라 애슬레틱",
+     "away": "낙동 알비온",
+     "score": {
+      "home": 1,
+      "away": 0
+     }
+    },
+    {
+     "date": "2026-08-09T06:24:40.599Z",
+     "home": "탐라 애슬레틱",
+     "away": "낙동 알비온",
+     "score": {
+      "home": 3,
+      "away": 1
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-basketball-1057",
+   "sport": "basketball",
+   "leagueId": "sample-basketball",
+   "leagueName": "샘플 농구 리그",
+   "date": "2026-11-14T16:48:40.599Z",
+   "home": {
+    "name": "영산 썬더",
+    "rank": 4,
+    "restDays": 4,
+    "record": {
+     "played": 19,
+     "win": 9,
+     "draw": 0,
+     "loss": 10,
+     "gf": 2090,
+     "ga": 2097,
+     "home": {
+      "played": 9,
+      "win": 4,
+      "draw": 0,
+      "loss": 5
+     },
+     "away": {
+      "played": 10,
+      "win": 5,
+      "draw": 0,
+      "loss": 5
+     },
+     "gfPerGame": 110,
+     "gaPerGame": 110.37
+    },
+    "last5": [
+     {
+      "date": "2026-11-10T06:24:40.599Z",
+      "home": true,
+      "opponent": "소백 나이츠",
+      "gf": 104,
+      "ga": 97,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-07T04:24:40.599Z",
+      "home": true,
+      "opponent": "한라 스톰",
+      "gf": 105,
+      "ga": 93,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-04T06:24:40.599Z",
+      "home": false,
+      "opponent": "태백 베어스",
+      "gf": 117,
+      "ga": 121,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-01T06:24:40.599Z",
+      "home": true,
+      "opponent": "태백 베어스",
+      "gf": 112,
+      "ga": 121,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-29T02:24:40.599Z",
+      "home": true,
+      "opponent": "북악 호크스",
+      "gf": 97,
+      "ga": 130,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 107,
+     "gaPerGame": 112.4
+    },
+    "lastPlayed": "2026-11-10T06:24:40.599Z"
+   },
+   "away": {
+    "name": "서해 웨이브",
+    "rank": 2,
+    "restDays": 4,
+    "record": {
+     "played": 17,
+     "win": 12,
+     "draw": 0,
+     "loss": 5,
+     "gf": 2092,
+     "ga": 1877,
+     "home": {
+      "played": 8,
+      "win": 7,
+      "draw": 0,
+      "loss": 1
+     },
+     "away": {
+      "played": 9,
+      "win": 5,
+      "draw": 0,
+      "loss": 4
+     },
+     "gfPerGame": 123.06,
+     "gaPerGame": 110.41
+    },
+    "last5": [
+     {
+      "date": "2026-11-10T04:24:40.599Z",
+      "home": true,
+      "opponent": "태백 베어스",
+      "gf": 111,
+      "ga": 100,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-10T02:24:40.599Z",
+      "home": false,
+      "opponent": "북악 호크스",
+      "gf": 115,
+      "ga": 143,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-04T02:24:40.599Z",
+      "home": true,
+      "opponent": "한라 스톰",
+      "gf": 113,
+      "ga": 85,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-29T04:24:40.599Z",
+      "home": true,
+      "opponent": "소백 나이츠",
+      "gf": 131,
+      "ga": 109,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-26T06:24:40.599Z",
+      "home": true,
+      "opponent": "영산 썬더",
+      "gf": 131,
+      "ga": 124,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 4,
+     "draw": 0,
+     "loss": 1,
+     "gfPerGame": 120.2,
+     "gaPerGame": 112.2
+    },
+    "lastPlayed": "2026-11-10T04:24:40.599Z"
+   },
+   "teamCount": 6,
+   "prediction": {
+    "pHome": 0.44,
+    "pDraw": 0,
+    "pAway": 0.56,
+    "rating": {
+     "home": 1482,
+     "away": 1584
+    },
+    "pick": "away",
+    "confidence": "low",
+    "sample": 54,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-10-26T06:24:40.599Z",
+     "home": "서해 웨이브",
+     "away": "영산 썬더",
+     "score": {
+      "home": 131,
+      "away": 124
+     }
+    },
+    {
+     "date": "2026-10-20T04:24:40.599Z",
+     "home": "서해 웨이브",
+     "away": "영산 썬더",
+     "score": {
+      "home": 116,
+      "away": 100
+     }
+    },
+    {
+     "date": "2026-09-29T06:24:40.599Z",
+     "home": "영산 썬더",
+     "away": "서해 웨이브",
+     "score": {
+      "home": 111,
+      "away": 143
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-baseball-1057",
+   "sport": "baseball",
+   "leagueId": "sample-baseball",
+   "leagueName": "샘플 야구 리그",
+   "date": "2026-11-14T16:48:40.599Z",
+   "home": {
+    "name": "가람 타이거즈",
+    "rank": 2,
+    "restDays": 3,
+    "record": {
+     "played": 18,
+     "win": 13,
+     "draw": 0,
+     "loss": 5,
+     "gf": 93,
+     "ga": 64,
+     "home": {
+      "played": 8,
+      "win": 6,
+      "draw": 0,
+      "loss": 2
+     },
+     "away": {
+      "played": 10,
+      "win": 7,
+      "draw": 0,
+      "loss": 3
+     },
+     "gfPerGame": 5.17,
+     "gaPerGame": 3.56
+    },
+    "last5": [
+     {
+      "date": "2026-11-11T06:24:40.599Z",
+      "home": false,
+      "opponent": "누리 랜더스",
+      "gf": 5,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-11T02:24:40.599Z",
+      "home": false,
+      "opponent": "다솜 라이온즈",
+      "gf": 3,
+      "ga": 4,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-05T06:24:40.599Z",
+      "home": false,
+      "opponent": "마루 이글스",
+      "gf": 7,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T06:24:40.599Z",
+      "home": false,
+      "opponent": "미리내 스타즈",
+      "gf": 4,
+      "ga": 9,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-30T06:24:40.599Z",
+      "home": true,
+      "opponent": "다솜 라이온즈",
+      "gf": 7,
+      "ga": 2,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 3,
+     "draw": 0,
+     "loss": 2,
+     "gfPerGame": 5.2,
+     "gaPerGame": 3.4
+    },
+    "lastPlayed": "2026-11-11T06:24:40.599Z"
+   },
+   "away": {
+    "name": "미리내 스타즈",
+    "rank": 1,
+    "restDays": 7,
+    "record": {
+     "played": 17,
+     "win": 13,
+     "draw": 0,
+     "loss": 4,
+     "gf": 103,
+     "ga": 53,
+     "home": {
+      "played": 8,
+      "win": 6,
+      "draw": 0,
+      "loss": 2
+     },
+     "away": {
+      "played": 9,
+      "win": 7,
+      "draw": 0,
+      "loss": 2
+     },
+     "gfPerGame": 6.06,
+     "gaPerGame": 3.12
+    },
+    "last5": [
+     {
+      "date": "2026-11-07T04:24:40.599Z",
+      "home": true,
+      "opponent": "새벽 위즈",
+      "gf": 8,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-05T04:24:40.599Z",
+      "home": false,
+      "opponent": "다솜 라이온즈",
+      "gf": 6,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-03T06:24:40.599Z",
+      "home": true,
+      "opponent": "누리 랜더스",
+      "gf": 7,
+      "ga": 5,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-03T02:24:40.599Z",
+      "home": true,
+      "opponent": "새벽 위즈",
+      "gf": 8,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T06:24:40.599Z",
+      "home": true,
+      "opponent": "가람 타이거즈",
+      "gf": 9,
+      "ga": 4,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 5,
+     "draw": 0,
+     "loss": 0,
+     "gfPerGame": 7.6,
+     "gaPerGame": 2.6
+    },
+    "lastPlayed": "2026-11-07T04:24:40.599Z"
+   },
+   "teamCount": 6,
+   "prediction": {
+    "pHome": 0.516,
+    "pDraw": 0,
+    "pAway": 0.484,
+    "rating": {
+     "home": 1532,
+     "away": 1545
+    },
+    "pick": "home",
+    "confidence": "low",
+    "sample": 54,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-11-01T06:24:40.599Z",
+     "home": "미리내 스타즈",
+     "away": "가람 타이거즈",
+     "score": {
+      "home": 9,
+      "away": 4
+     }
+    },
+    {
+     "date": "2026-10-30T02:24:40.599Z",
+     "home": "가람 타이거즈",
+     "away": "미리내 스타즈",
+     "score": {
+      "home": 6,
+      "away": 5
+     }
+    },
+    {
+     "date": "2026-10-08T06:24:40.599Z",
+     "home": "미리내 스타즈",
+     "away": "가람 타이거즈",
+     "score": {
+      "home": 2,
+      "away": 4
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-volleyball-1022",
+   "sport": "volleyball",
+   "leagueId": "sample-volleyball",
+   "leagueName": "샘플 배구 리그",
+   "date": "2026-11-14T16:48:40.599Z",
+   "home": {
+    "name": "노을 블루윙스",
+    "rank": 2,
+    "restDays": 5,
+    "record": {
+     "played": 9,
+     "win": 5,
+     "draw": 0,
+     "loss": 4,
+     "gf": 18,
+     "ga": 15,
+     "home": {
+      "played": 4,
+      "win": 2,
+      "draw": 0,
+      "loss": 2
+     },
+     "away": {
+      "played": 5,
+      "win": 3,
+      "draw": 0,
+      "loss": 2
+     },
+     "gfPerGame": 2,
+     "gaPerGame": 1.67
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": true,
+      "opponent": "아라 점퍼스",
+      "gf": 3,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-09T02:24:40.599Z",
+      "home": true,
+      "opponent": "아라 점퍼스",
+      "gf": 0,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-05T02:24:40.599Z",
+      "home": true,
+      "opponent": "바람 스파이커스",
+      "gf": 1,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": false,
+      "opponent": "온새 스카이",
+      "gf": 2,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-28T04:24:40.599Z",
+      "home": false,
+      "opponent": "바람 스파이커스",
+      "gf": 3,
+      "ga": 2,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 1.8,
+     "gaPerGame": 2.2
+    },
+    "lastPlayed": "2026-11-09T04:24:40.599Z"
+   },
+   "away": {
+    "name": "바람 스파이커스",
+    "rank": 1,
+    "restDays": 9,
+    "record": {
+     "played": 10,
+     "win": 7,
+     "draw": 0,
+     "loss": 3,
+     "gf": 25,
+     "ga": 17,
+     "home": {
+      "played": 5,
+      "win": 2,
+      "draw": 0,
+      "loss": 3
+     },
+     "away": {
+      "played": 5,
+      "win": 5,
+      "draw": 0,
+      "loss": 0
+     },
+     "gfPerGame": 2.5,
+     "gaPerGame": 1.7
+    },
+    "last5": [
+     {
+      "date": "2026-11-05T04:24:40.599Z",
+      "home": false,
+      "opponent": "아라 점퍼스",
+      "gf": 3,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-05T02:24:40.599Z",
+      "home": false,
+      "opponent": "노을 블루윙스",
+      "gf": 3,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T02:24:40.599Z",
+      "home": false,
+      "opponent": "온새 스카이",
+      "gf": 3,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-28T04:24:40.599Z",
+      "home": true,
+      "opponent": "노을 블루윙스",
+      "gf": 2,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-24T04:24:40.599Z",
+      "home": true,
+      "opponent": "온새 스카이",
+      "gf": 3,
+      "ga": 2,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 4,
+     "draw": 0,
+     "loss": 1,
+     "gfPerGame": 2.8,
+     "gaPerGame": 1.8
+    },
+    "lastPlayed": "2026-11-05T04:24:40.599Z"
+   },
+   "teamCount": 4,
+   "prediction": {
+    "pHome": 0.473,
+    "pDraw": 0,
+    "pAway": 0.527,
+    "rating": {
+     "home": 1509,
+     "away": 1568
+    },
+    "pick": "away",
+    "confidence": "low",
+    "sample": 20,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-11-05T02:24:40.599Z",
+     "home": "노을 블루윙스",
+     "away": "바람 스파이커스",
+     "score": {
+      "home": 1,
+      "away": 3
+     }
+    },
+    {
+     "date": "2026-10-28T04:24:40.599Z",
+     "home": "바람 스파이커스",
+     "away": "노을 블루윙스",
+     "score": {
+      "home": 2,
+      "away": 3
+     }
+    },
+    {
+     "date": "2026-10-04T04:24:40.599Z",
+     "home": "바람 스파이커스",
+     "away": "노을 블루윙스",
+     "score": {
+      "home": 0,
+      "away": 3
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-football-1109",
+   "sport": "football",
+   "leagueId": "sample-football",
+   "leagueName": "샘플 축구 리그",
+   "date": "2026-11-14T18:48:40.599Z",
+   "home": {
+    "name": "설악 타운",
+    "rank": 7,
+    "restDays": 5,
+    "record": {
+     "played": 27,
+     "win": 7,
+     "draw": 7,
+     "loss": 13,
+     "gf": 23,
+     "ga": 37,
+     "home": {
+      "played": 13,
+      "win": 4,
+      "draw": 2,
+      "loss": 7
+     },
+     "away": {
+      "played": 14,
+      "win": 3,
+      "draw": 5,
+      "loss": 6
+     },
+     "gfPerGame": 0.85,
+     "gaPerGame": 1.37
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T06:24:40.599Z",
+      "home": false,
+      "opponent": "낙동 알비온",
+      "gf": 0,
+      "ga": 0,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T06:24:40.599Z",
+      "home": false,
+      "opponent": "백두 로버스",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-01T08:24:40.599Z",
+      "home": true,
+      "opponent": "금강 원더러스",
+      "gf": 2,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T02:24:40.599Z",
+      "home": true,
+      "opponent": "한강 FC",
+      "gf": 1,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-28T04:24:40.599Z",
+      "home": true,
+      "opponent": "금강 원더러스",
+      "gf": 1,
+      "ga": 3,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 1,
+     "draw": 2,
+     "loss": 2,
+     "gfPerGame": 1,
+     "gaPerGame": 1.6
+    },
+    "lastPlayed": "2026-11-09T06:24:40.599Z"
+   },
+   "away": {
+    "name": "탐라 애슬레틱",
+    "rank": 6,
+    "restDays": 5,
+    "record": {
+     "played": 25,
+     "win": 7,
+     "draw": 10,
+     "loss": 8,
+     "gf": 27,
+     "ga": 32,
+     "home": {
+      "played": 13,
+      "win": 5,
+      "draw": 5,
+      "loss": 3
+     },
+     "away": {
+      "played": 12,
+      "win": 2,
+      "draw": 5,
+      "loss": 5
+     },
+     "gfPerGame": 1.08,
+     "gaPerGame": 1.28
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T02:24:40.599Z",
+      "home": false,
+      "opponent": "백두 로버스",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": true,
+      "opponent": "한강 FC",
+      "gf": 1,
+      "ga": 2,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-20T04:24:40.599Z",
+      "home": true,
+      "opponent": "금강 원더러스",
+      "gf": 2,
+      "ga": 2,
+      "result": "draw"
+     },
+     {
+      "date": "2026-10-16T08:24:40.599Z",
+      "home": false,
+      "opponent": "남산 유나이티드",
+      "gf": 0,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-12T06:24:40.599Z",
+      "home": true,
+      "opponent": "남산 유나이티드",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     }
+    ],
+    "last5Summary": {
+     "win": 0,
+     "draw": 3,
+     "loss": 2,
+     "gfPerGame": 1,
+     "gaPerGame": 1.8
+    },
+    "lastPlayed": "2026-11-09T02:24:40.599Z"
+   },
+   "teamCount": 8,
+   "prediction": {
+    "pHome": 0.339,
+    "pDraw": 0.275,
+    "pAway": 0.386,
+    "expected": {
+     "home": 1.16,
+     "away": 1.26
+    },
+    "over25": 0.435,
+    "likelyScore": "1-1",
+    "pick": "away",
+    "confidence": "low",
+    "sample": 104,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": true,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-10-12T04:24:40.599Z",
+     "home": "설악 타운",
+     "away": "탐라 애슬레틱",
+     "score": {
+      "home": 1,
+      "away": 0
+     }
+    },
+    {
+     "date": "2026-09-06T04:24:40.599Z",
+     "home": "탐라 애슬레틱",
+     "away": "설악 타운",
+     "score": {
+      "home": 0,
+      "away": 0
+     }
+    },
+    {
+     "date": "2026-08-25T02:24:40.599Z",
+     "home": "탐라 애슬레틱",
+     "away": "설악 타운",
+     "score": {
+      "home": 1,
+      "away": 0
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-basketball-1058",
+   "sport": "basketball",
+   "leagueId": "sample-basketball",
+   "leagueName": "샘플 농구 리그",
+   "date": "2026-11-14T18:48:40.599Z",
+   "home": {
+    "name": "서해 웨이브",
+    "rank": 2,
+    "restDays": 4,
+    "record": {
+     "played": 17,
+     "win": 12,
+     "draw": 0,
+     "loss": 5,
+     "gf": 2092,
+     "ga": 1877,
+     "home": {
+      "played": 8,
+      "win": 7,
+      "draw": 0,
+      "loss": 1
+     },
+     "away": {
+      "played": 9,
+      "win": 5,
+      "draw": 0,
+      "loss": 4
+     },
+     "gfPerGame": 123.06,
+     "gaPerGame": 110.41
+    },
+    "last5": [
+     {
+      "date": "2026-11-10T04:24:40.599Z",
+      "home": true,
+      "opponent": "태백 베어스",
+      "gf": 111,
+      "ga": 100,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-10T02:24:40.599Z",
+      "home": false,
+      "opponent": "북악 호크스",
+      "gf": 115,
+      "ga": 143,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-04T02:24:40.599Z",
+      "home": true,
+      "opponent": "한라 스톰",
+      "gf": 113,
+      "ga": 85,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-29T04:24:40.599Z",
+      "home": true,
+      "opponent": "소백 나이츠",
+      "gf": 131,
+      "ga": 109,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-26T06:24:40.599Z",
+      "home": true,
+      "opponent": "영산 썬더",
+      "gf": 131,
+      "ga": 124,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 4,
+     "draw": 0,
+     "loss": 1,
+     "gfPerGame": 120.2,
+     "gaPerGame": 112.2
+    },
+    "lastPlayed": "2026-11-10T04:24:40.599Z"
+   },
+   "away": {
+    "name": "태백 베어스",
+    "rank": 3,
+    "restDays": 4,
+    "record": {
+     "played": 16,
+     "win": 10,
+     "draw": 0,
+     "loss": 6,
+     "gf": 1857,
+     "ga": 1778,
+     "home": {
+      "played": 8,
+      "win": 5,
+      "draw": 0,
+      "loss": 3
+     },
+     "away": {
+      "played": 8,
+      "win": 5,
+      "draw": 0,
+      "loss": 3
+     },
+     "gfPerGame": 116.06,
+     "gaPerGame": 111.13
+    },
+    "last5": [
+     {
+      "date": "2026-11-10T04:24:40.599Z",
+      "home": false,
+      "opponent": "서해 웨이브",
+      "gf": 100,
+      "ga": 111,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T06:24:40.599Z",
+      "home": false,
+      "opponent": "북악 호크스",
+      "gf": 95,
+      "ga": 129,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-04T06:24:40.599Z",
+      "home": true,
+      "opponent": "영산 썬더",
+      "gf": 121,
+      "ga": 117,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T06:24:40.599Z",
+      "home": false,
+      "opponent": "영산 썬더",
+      "gf": 121,
+      "ga": 112,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": true,
+      "opponent": "북악 호크스",
+      "gf": 118,
+      "ga": 142,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 111,
+     "gaPerGame": 122.2
+    },
+    "lastPlayed": "2026-11-10T04:24:40.599Z"
+   },
+   "teamCount": 6,
+   "prediction": {
+    "pHome": 0.633,
+    "pDraw": 0,
+    "pAway": 0.367,
+    "rating": {
+     "home": 1584,
+     "away": 1549
+    },
+    "pick": "home",
+    "confidence": "mid",
+    "sample": 54,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-11-10T04:24:40.599Z",
+     "home": "서해 웨이브",
+     "away": "태백 베어스",
+     "score": {
+      "home": 111,
+      "away": 100
+     }
+    },
+    {
+     "date": "2026-10-17T06:24:40.599Z",
+     "home": "태백 베어스",
+     "away": "서해 웨이브",
+     "score": {
+      "home": 122,
+      "away": 109
+     }
+    },
+    {
+     "date": "2026-09-20T04:24:40.599Z",
+     "home": "태백 베어스",
+     "away": "서해 웨이브",
+     "score": {
+      "home": 106,
+      "away": 136
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-baseball-1058",
+   "sport": "baseball",
+   "leagueId": "sample-baseball",
+   "leagueName": "샘플 야구 리그",
+   "date": "2026-11-14T18:48:40.599Z",
+   "home": {
+    "name": "새벽 위즈",
+    "rank": 5,
+    "restDays": 5,
+    "record": {
+     "played": 18,
+     "win": 6,
+     "draw": 0,
+     "loss": 12,
+     "gf": 64,
+     "ga": 101,
+     "home": {
+      "played": 9,
+      "win": 5,
+      "draw": 0,
+      "loss": 4
+     },
+     "away": {
+      "played": 9,
+      "win": 1,
+      "draw": 0,
+      "loss": 8
+     },
+     "gfPerGame": 3.56,
+     "gaPerGame": 5.61
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T06:24:40.599Z",
+      "home": false,
+      "opponent": "다솜 라이온즈",
+      "gf": 4,
+      "ga": 5,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T06:24:40.599Z",
+      "home": true,
+      "opponent": "누리 랜더스",
+      "gf": 5,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-07T04:24:40.599Z",
+      "home": false,
+      "opponent": "미리내 스타즈",
+      "gf": 0,
+      "ga": 8,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-03T02:24:40.599Z",
+      "home": false,
+      "opponent": "미리내 스타즈",
+      "gf": 2,
+      "ga": 8,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-30T04:24:40.599Z",
+      "home": false,
+      "opponent": "마루 이글스",
+      "gf": 3,
+      "ga": 2,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 2.8,
+     "gaPerGame": 5
+    },
+    "lastPlayed": "2026-11-09T06:24:40.599Z"
+   },
+   "away": {
+    "name": "다솜 라이온즈",
+    "rank": 4,
+    "restDays": 3,
+    "record": {
+     "played": 18,
+     "win": 8,
+     "draw": 0,
+     "loss": 10,
+     "gf": 83,
+     "ga": 82,
+     "home": {
+      "played": 10,
+      "win": 6,
+      "draw": 0,
+      "loss": 4
+     },
+     "away": {
+      "played": 8,
+      "win": 2,
+      "draw": 0,
+      "loss": 6
+     },
+     "gfPerGame": 4.61,
+     "gaPerGame": 4.56
+    },
+    "last5": [
+     {
+      "date": "2026-11-11T02:24:40.599Z",
+      "home": true,
+      "opponent": "가람 타이거즈",
+      "gf": 4,
+      "ga": 3,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-09T06:24:40.599Z",
+      "home": true,
+      "opponent": "새벽 위즈",
+      "gf": 5,
+      "ga": 4,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": false,
+      "opponent": "마루 이글스",
+      "gf": 6,
+      "ga": 7,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-09T02:24:40.599Z",
+      "home": true,
+      "opponent": "마루 이글스",
+      "gf": 3,
+      "ga": 5,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-07T02:24:40.599Z",
+      "home": true,
+      "opponent": "누리 랜더스",
+      "gf": 8,
+      "ga": 5,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 3,
+     "draw": 0,
+     "loss": 2,
+     "gfPerGame": 5.2,
+     "gaPerGame": 4.8
+    },
+    "lastPlayed": "2026-11-11T02:24:40.599Z"
+   },
+   "teamCount": 6,
+   "prediction": {
+    "pHome": 0.507,
+    "pDraw": 0,
+    "pAway": 0.493,
+    "rating": {
+     "home": 1474,
+     "away": 1493
+    },
+    "pick": "home",
+    "confidence": "low",
+    "sample": 54,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-11-09T06:24:40.599Z",
+     "home": "다솜 라이온즈",
+     "away": "새벽 위즈",
+     "score": {
+      "home": 5,
+      "away": 4
+     }
+    },
+    {
+     "date": "2026-10-24T06:24:40.599Z",
+     "home": "다솜 라이온즈",
+     "away": "새벽 위즈",
+     "score": {
+      "home": 16,
+      "away": 4
+     }
+    },
+    {
+     "date": "2026-10-22T02:24:40.599Z",
+     "home": "새벽 위즈",
+     "away": "다솜 라이온즈",
+     "score": {
+      "home": 4,
+      "away": 0
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-volleyball-1023",
+   "sport": "volleyball",
+   "leagueId": "sample-volleyball",
+   "leagueName": "샘플 배구 리그",
+   "date": "2026-11-14T18:48:40.599Z",
+   "home": {
+    "name": "노을 블루윙스",
+    "rank": 2,
+    "restDays": 5,
+    "record": {
+     "played": 9,
+     "win": 5,
+     "draw": 0,
+     "loss": 4,
+     "gf": 18,
+     "ga": 15,
+     "home": {
+      "played": 4,
+      "win": 2,
+      "draw": 0,
+      "loss": 2
+     },
+     "away": {
+      "played": 5,
+      "win": 3,
+      "draw": 0,
+      "loss": 2
+     },
+     "gfPerGame": 2,
+     "gaPerGame": 1.67
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": true,
+      "opponent": "아라 점퍼스",
+      "gf": 3,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-09T02:24:40.599Z",
+      "home": true,
+      "opponent": "아라 점퍼스",
+      "gf": 0,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-05T02:24:40.599Z",
+      "home": true,
+      "opponent": "바람 스파이커스",
+      "gf": 1,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": false,
+      "opponent": "온새 스카이",
+      "gf": 2,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-28T04:24:40.599Z",
+      "home": false,
+      "opponent": "바람 스파이커스",
+      "gf": 3,
+      "ga": 2,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 1.8,
+     "gaPerGame": 2.2
+    },
+    "lastPlayed": "2026-11-09T04:24:40.599Z"
+   },
+   "away": {
+    "name": "온새 스카이",
+    "rank": 4,
+    "restDays": 13,
+    "record": {
+     "played": 10,
+     "win": 2,
+     "draw": 0,
+     "loss": 8,
+     "gf": 14,
+     "ga": 26,
+     "home": {
+      "played": 6,
+      "win": 2,
+      "draw": 0,
+      "loss": 4
+     },
+     "away": {
+      "played": 4,
+      "win": 0,
+      "draw": 0,
+      "loss": 4
+     },
+     "gfPerGame": 1.4,
+     "gaPerGame": 2.6
+    },
+    "last5": [
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": true,
+      "opponent": "노을 블루윙스",
+      "gf": 3,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T02:24:40.599Z",
+      "home": true,
+      "opponent": "바람 스파이커스",
+      "gf": 2,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-28T02:24:40.599Z",
+      "home": true,
+      "opponent": "아라 점퍼스",
+      "gf": 3,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-24T04:24:40.599Z",
+      "home": false,
+      "opponent": "바람 스파이커스",
+      "gf": 2,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-24T02:24:40.599Z",
+      "home": false,
+      "opponent": "노을 블루윙스",
+      "gf": 1,
+      "ga": 3,
+      "result": "loss"
+     }
+    ],
+    "last5Summary": {
+     "win": 2,
+     "draw": 0,
+     "loss": 3,
+     "gfPerGame": 2.2,
+     "gaPerGame": 2.2
+    },
+    "lastPlayed": "2026-11-01T04:24:40.599Z"
+   },
+   "teamCount": 4,
+   "prediction": {
+    "pHome": 0.675,
+    "pDraw": 0,
+    "pAway": 0.325,
+    "rating": {
+     "home": 1509,
+     "away": 1422
+    },
+    "pick": "home",
+    "confidence": "high",
+    "sample": 20,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-11-01T04:24:40.599Z",
+     "home": "온새 스카이",
+     "away": "노을 블루윙스",
+     "score": {
+      "home": 3,
+      "away": 2
+     }
+    },
+    {
+     "date": "2026-10-24T02:24:40.599Z",
+     "home": "노을 블루윙스",
+     "away": "온새 스카이",
+     "score": {
+      "home": 3,
+      "away": 1
+     }
+    },
+    {
+     "date": "2026-10-08T04:24:40.599Z",
+     "home": "온새 스카이",
+     "away": "노을 블루윙스",
+     "score": {
+      "home": 0,
+      "away": 3
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-football-1110",
+   "sport": "football",
+   "leagueId": "sample-football",
+   "leagueName": "샘플 축구 리그",
+   "date": "2026-11-14T20:48:40.599Z",
+   "home": {
+    "name": "한강 FC",
+    "rank": 4,
+    "restDays": 5,
+    "record": {
+     "played": 24,
+     "win": 10,
+     "draw": 5,
+     "loss": 9,
+     "gf": 35,
+     "ga": 28,
+     "home": {
+      "played": 12,
+      "win": 5,
+      "draw": 3,
+      "loss": 4
+     },
+     "away": {
+      "played": 12,
+      "win": 5,
+      "draw": 2,
+      "loss": 5
+     },
+     "gfPerGame": 1.46,
+     "gaPerGame": 1.17
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": false,
+      "opponent": "백두 로버스",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T08:24:40.599Z",
+      "home": true,
+      "opponent": "동해 시티",
+      "gf": 0,
+      "ga": 0,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T04:24:40.599Z",
+      "home": false,
+      "opponent": "낙동 알비온",
+      "gf": 4,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": false,
+      "opponent": "탐라 애슬레틱",
+      "gf": 2,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T02:24:40.599Z",
+      "home": false,
+      "opponent": "설악 타운",
+      "gf": 3,
+      "ga": 1,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 3,
+     "draw": 2,
+     "loss": 0,
+     "gfPerGame": 2,
+     "gaPerGame": 1
+    },
+    "lastPlayed": "2026-11-09T04:24:40.599Z"
+   },
+   "away": {
+    "name": "남산 유나이티드",
+    "rank": 1,
+    "restDays": 17,
+    "record": {
+     "played": 27,
+     "win": 14,
+     "draw": 7,
+     "loss": 6,
+     "gf": 52,
+     "ga": 29,
+     "home": {
+      "played": 14,
+      "win": 9,
+      "draw": 3,
+      "loss": 2
+     },
+     "away": {
+      "played": 13,
+      "win": 5,
+      "draw": 4,
+      "loss": 4
+     },
+     "gfPerGame": 1.93,
+     "gaPerGame": 1.07
+    },
+    "last5": [
+     {
+      "date": "2026-10-28T06:24:40.599Z",
+      "home": false,
+      "opponent": "낙동 알비온",
+      "gf": 1,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-24T04:24:40.599Z",
+      "home": true,
+      "opponent": "동해 시티",
+      "gf": 0,
+      "ga": 1,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-16T08:24:40.599Z",
+      "home": true,
+      "opponent": "탐라 애슬레틱",
+      "gf": 3,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-16T06:24:40.599Z",
+      "home": false,
+      "opponent": "백두 로버스",
+      "gf": 2,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-16T04:24:40.599Z",
+      "home": false,
+      "opponent": "백두 로버스",
+      "gf": 2,
+      "ga": 2,
+      "result": "draw"
+     }
+    ],
+    "last5Summary": {
+     "win": 3,
+     "draw": 1,
+     "loss": 1,
+     "gfPerGame": 1.6,
+     "gaPerGame": 0.6
+    },
+    "lastPlayed": "2026-10-28T06:24:40.599Z"
+   },
+   "teamCount": 8,
+   "prediction": {
+    "pHome": 0.32,
+    "pDraw": 0.251,
+    "pAway": 0.429,
+    "expected": {
+     "home": 1.27,
+     "away": 1.51
+    },
+    "over25": 0.528,
+    "likelyScore": "1-1",
+    "pick": "away",
+    "confidence": "low",
+    "sample": 104,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": true,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-10-08T04:24:40.599Z",
+     "home": "남산 유나이티드",
+     "away": "한강 FC",
+     "score": {
+      "home": 2,
+      "away": 2
+     }
+    },
+    {
+     "date": "2026-08-29T08:24:40.599Z",
+     "home": "한강 FC",
+     "away": "남산 유나이티드",
+     "score": {
+      "home": 1,
+      "away": 0
+     }
+    },
+    {
+     "date": "2026-08-29T02:24:40.599Z",
+     "home": "남산 유나이티드",
+     "away": "한강 FC",
+     "score": {
+      "home": 2,
+      "away": 1
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-basketball-1059",
+   "sport": "basketball",
+   "leagueId": "sample-basketball",
+   "leagueName": "샘플 농구 리그",
+   "date": "2026-11-14T20:48:40.599Z",
+   "home": {
+    "name": "서해 웨이브",
+    "rank": 2,
+    "restDays": 4,
+    "record": {
+     "played": 17,
+     "win": 12,
+     "draw": 0,
+     "loss": 5,
+     "gf": 2092,
+     "ga": 1877,
+     "home": {
+      "played": 8,
+      "win": 7,
+      "draw": 0,
+      "loss": 1
+     },
+     "away": {
+      "played": 9,
+      "win": 5,
+      "draw": 0,
+      "loss": 4
+     },
+     "gfPerGame": 123.06,
+     "gaPerGame": 110.41
+    },
+    "last5": [
+     {
+      "date": "2026-11-10T04:24:40.599Z",
+      "home": true,
+      "opponent": "태백 베어스",
+      "gf": 111,
+      "ga": 100,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-10T02:24:40.599Z",
+      "home": false,
+      "opponent": "북악 호크스",
+      "gf": 115,
+      "ga": 143,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-04T02:24:40.599Z",
+      "home": true,
+      "opponent": "한라 스톰",
+      "gf": 113,
+      "ga": 85,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-29T04:24:40.599Z",
+      "home": true,
+      "opponent": "소백 나이츠",
+      "gf": 131,
+      "ga": 109,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-26T06:24:40.599Z",
+      "home": true,
+      "opponent": "영산 썬더",
+      "gf": 131,
+      "ga": 124,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 4,
+     "draw": 0,
+     "loss": 1,
+     "gfPerGame": 120.2,
+     "gaPerGame": 112.2
+    },
+    "lastPlayed": "2026-11-10T04:24:40.599Z"
+   },
+   "away": {
+    "name": "북악 호크스",
+    "rank": 1,
+    "restDays": 4,
+    "record": {
+     "played": 19,
+     "win": 17,
+     "draw": 0,
+     "loss": 2,
+     "gf": 2487,
+     "ga": 2032,
+     "home": {
+      "played": 10,
+      "win": 10,
+      "draw": 0,
+      "loss": 0
+     },
+     "away": {
+      "played": 9,
+      "win": 7,
+      "draw": 0,
+      "loss": 2
+     },
+     "gfPerGame": 130.89,
+     "gaPerGame": 106.95
+    },
+    "last5": [
+     {
+      "date": "2026-11-10T02:24:40.599Z",
+      "home": true,
+      "opponent": "서해 웨이브",
+      "gf": 143,
+      "ga": 115,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-07T06:24:40.599Z",
+      "home": true,
+      "opponent": "태백 베어스",
+      "gf": 129,
+      "ga": 95,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-04T04:24:40.599Z",
+      "home": false,
+      "opponent": "한라 스톰",
+      "gf": 137,
+      "ga": 88,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": false,
+      "opponent": "태백 베어스",
+      "gf": 142,
+      "ga": 118,
+      "result": "win"
+     },
+     {
+      "date": "2026-10-29T06:24:40.599Z",
+      "home": true,
+      "opponent": "소백 나이츠",
+      "gf": 149,
+      "ga": 115,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 5,
+     "draw": 0,
+     "loss": 0,
+     "gfPerGame": 140,
+     "gaPerGame": 106.2
+    },
+    "lastPlayed": "2026-11-10T02:24:40.599Z"
+   },
+   "teamCount": 6,
+   "prediction": {
+    "pHome": 0.436,
+    "pDraw": 0,
+    "pAway": 0.564,
+    "rating": {
+     "home": 1584,
+     "away": 1689
+    },
+    "pick": "away",
+    "confidence": "low",
+    "sample": 54,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-11-10T02:24:40.599Z",
+     "home": "북악 호크스",
+     "away": "서해 웨이브",
+     "score": {
+      "home": 143,
+      "away": 115
+     }
+    },
+    {
+     "date": "2026-10-17T02:24:40.599Z",
+     "home": "북악 호크스",
+     "away": "서해 웨이브",
+     "score": {
+      "home": 128,
+      "away": 117
+     }
+    },
+    {
+     "date": "2026-09-26T06:24:40.599Z",
+     "home": "서해 웨이브",
+     "away": "북악 호크스",
+     "score": {
+      "home": 109,
+      "away": 148
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-baseball-1059",
+   "sport": "baseball",
+   "leagueId": "sample-baseball",
+   "leagueName": "샘플 야구 리그",
+   "date": "2026-11-14T20:48:40.599Z",
+   "home": {
+    "name": "미리내 스타즈",
+    "rank": 1,
+    "restDays": 7,
+    "record": {
+     "played": 17,
+     "win": 13,
+     "draw": 0,
+     "loss": 4,
+     "gf": 103,
+     "ga": 53,
+     "home": {
+      "played": 8,
+      "win": 6,
+      "draw": 0,
+      "loss": 2
+     },
+     "away": {
+      "played": 9,
+      "win": 7,
+      "draw": 0,
+      "loss": 2
+     },
+     "gfPerGame": 6.06,
+     "gaPerGame": 3.12
+    },
+    "last5": [
+     {
+      "date": "2026-11-07T04:24:40.599Z",
+      "home": true,
+      "opponent": "새벽 위즈",
+      "gf": 8,
+      "ga": 0,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-05T04:24:40.599Z",
+      "home": false,
+      "opponent": "다솜 라이온즈",
+      "gf": 6,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-03T06:24:40.599Z",
+      "home": true,
+      "opponent": "누리 랜더스",
+      "gf": 7,
+      "ga": 5,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-03T02:24:40.599Z",
+      "home": true,
+      "opponent": "새벽 위즈",
+      "gf": 8,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T06:24:40.599Z",
+      "home": true,
+      "opponent": "가람 타이거즈",
+      "gf": 9,
+      "ga": 4,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 5,
+     "draw": 0,
+     "loss": 0,
+     "gfPerGame": 7.6,
+     "gaPerGame": 2.6
+    },
+    "lastPlayed": "2026-11-07T04:24:40.599Z"
+   },
+   "away": {
+    "name": "마루 이글스",
+    "rank": 3,
+    "restDays": 3,
+    "record": {
+     "played": 19,
+     "win": 11,
+     "draw": 0,
+     "loss": 8,
+     "gf": 96,
+     "ga": 89,
+     "home": {
+      "played": 10,
+      "win": 4,
+      "draw": 0,
+      "loss": 6
+     },
+     "away": {
+      "played": 9,
+      "win": 7,
+      "draw": 0,
+      "loss": 2
+     },
+     "gfPerGame": 5.05,
+     "gaPerGame": 4.68
+    },
+    "last5": [
+     {
+      "date": "2026-11-11T04:24:40.599Z",
+      "home": true,
+      "opponent": "누리 랜더스",
+      "gf": 10,
+      "ga": 5,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": true,
+      "opponent": "다솜 라이온즈",
+      "gf": 7,
+      "ga": 6,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-09T02:24:40.599Z",
+      "home": false,
+      "opponent": "다솜 라이온즈",
+      "gf": 5,
+      "ga": 3,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-05T06:24:40.599Z",
+      "home": true,
+      "opponent": "가람 타이거즈",
+      "gf": 1,
+      "ga": 7,
+      "result": "loss"
+     },
+     {
+      "date": "2026-11-05T02:24:40.599Z",
+      "home": true,
+      "opponent": "누리 랜더스",
+      "gf": 5,
+      "ga": 2,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 4,
+     "draw": 0,
+     "loss": 1,
+     "gfPerGame": 5.6,
+     "gaPerGame": 4.6
+    },
+    "lastPlayed": "2026-11-11T04:24:40.599Z"
+   },
+   "teamCount": 6,
+   "prediction": {
+    "pHome": 0.585,
+    "pDraw": 0,
+    "pAway": 0.415,
+    "rating": {
+     "home": 1545,
+     "away": 1509
+    },
+    "pick": "home",
+    "confidence": "mid",
+    "sample": 54,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": false,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-10-28T04:24:40.599Z",
+     "home": "마루 이글스",
+     "away": "미리내 스타즈",
+     "score": {
+      "home": 4,
+      "away": 6
+     }
+    },
+    {
+     "date": "2026-10-18T02:24:40.599Z",
+     "home": "미리내 스타즈",
+     "away": "마루 이글스",
+     "score": {
+      "home": 3,
+      "away": 5
+     }
+    },
+    {
+     "date": "2026-10-12T06:24:40.599Z",
+     "home": "마루 이글스",
+     "away": "미리내 스타즈",
+     "score": {
+      "home": 3,
+      "away": 7
+     }
+    }
+   ],
+   "commentary": null
+  },
+  {
+   "id": "sample-football-1111",
+   "sport": "football",
+   "leagueId": "sample-football",
+   "leagueName": "샘플 축구 리그",
+   "date": "2026-11-14T22:48:40.599Z",
+   "home": {
+    "name": "탐라 애슬레틱",
+    "rank": 6,
+    "restDays": 5,
+    "record": {
+     "played": 25,
+     "win": 7,
+     "draw": 10,
+     "loss": 8,
+     "gf": 27,
+     "ga": 32,
+     "home": {
+      "played": 13,
+      "win": 5,
+      "draw": 5,
+      "loss": 3
+     },
+     "away": {
+      "played": 12,
+      "win": 2,
+      "draw": 5,
+      "loss": 5
+     },
+     "gfPerGame": 1.08,
+     "gaPerGame": 1.28
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T02:24:40.599Z",
+      "home": false,
+      "opponent": "백두 로버스",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": true,
+      "opponent": "한강 FC",
+      "gf": 1,
+      "ga": 2,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-20T04:24:40.599Z",
+      "home": true,
+      "opponent": "금강 원더러스",
+      "gf": 2,
+      "ga": 2,
+      "result": "draw"
+     },
+     {
+      "date": "2026-10-16T08:24:40.599Z",
+      "home": false,
+      "opponent": "남산 유나이티드",
+      "gf": 0,
+      "ga": 3,
+      "result": "loss"
+     },
+     {
+      "date": "2026-10-12T06:24:40.599Z",
+      "home": true,
+      "opponent": "남산 유나이티드",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     }
+    ],
+    "last5Summary": {
+     "win": 0,
+     "draw": 3,
+     "loss": 2,
+     "gfPerGame": 1,
+     "gaPerGame": 1.8
+    },
+    "lastPlayed": "2026-11-09T02:24:40.599Z"
+   },
+   "away": {
+    "name": "한강 FC",
+    "rank": 4,
+    "restDays": 5,
+    "record": {
+     "played": 24,
+     "win": 10,
+     "draw": 5,
+     "loss": 9,
+     "gf": 35,
+     "ga": 28,
+     "home": {
+      "played": 12,
+      "win": 5,
+      "draw": 3,
+      "loss": 4
+     },
+     "away": {
+      "played": 12,
+      "win": 5,
+      "draw": 2,
+      "loss": 5
+     },
+     "gfPerGame": 1.46,
+     "gaPerGame": 1.17
+    },
+    "last5": [
+     {
+      "date": "2026-11-09T04:24:40.599Z",
+      "home": false,
+      "opponent": "백두 로버스",
+      "gf": 1,
+      "ga": 1,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T08:24:40.599Z",
+      "home": true,
+      "opponent": "동해 시티",
+      "gf": 0,
+      "ga": 0,
+      "result": "draw"
+     },
+     {
+      "date": "2026-11-05T04:24:40.599Z",
+      "home": false,
+      "opponent": "낙동 알비온",
+      "gf": 4,
+      "ga": 2,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T04:24:40.599Z",
+      "home": false,
+      "opponent": "탐라 애슬레틱",
+      "gf": 2,
+      "ga": 1,
+      "result": "win"
+     },
+     {
+      "date": "2026-11-01T02:24:40.599Z",
+      "home": false,
+      "opponent": "설악 타운",
+      "gf": 3,
+      "ga": 1,
+      "result": "win"
+     }
+    ],
+    "last5Summary": {
+     "win": 3,
+     "draw": 2,
+     "loss": 0,
+     "gfPerGame": 2,
+     "gaPerGame": 1
+    },
+    "lastPlayed": "2026-11-09T04:24:40.599Z"
+   },
+   "teamCount": 8,
+   "prediction": {
+    "pHome": 0.289,
+    "pDraw": 0.286,
+    "pAway": 0.425,
+    "expected": {
+     "home": 0.98,
+     "away": 1.25
+    },
+    "over25": 0.384,
+    "likelyScore": "0-1",
+    "pick": "away",
+    "confidence": "low",
+    "sample": 104,
+    "lowData": false
+   },
+   "injuryImpact": null,
+   "injuries": {
+    "available": true,
+    "home": [],
+    "away": []
+   },
+   "h2h": [
+    {
+     "date": "2026-11-01T04:24:40.599Z",
+     "home": "탐라 애슬레틱",
+     "away": "한강 FC",
+     "score": {
+      "home": 1,
+      "away": 2
+     }
+    },
+    {
+     "date": "2026-10-12T02:24:40.599Z",
+     "home": "한강 FC",
+     "away": "탐라 애슬레틱",
+     "score": {
+      "home": 2,
+      "away": 2
+     }
+    },
+    {
+     "date": "2026-08-09T02:24:40.599Z",
+     "home": "한강 FC",
+     "away": "탐라 애슬레틱",
+     "score": {
+      "home": 0,
+      "away": 2
+     }
+    }
+   ],
+   "commentary": null
+  }
+ ]
+}

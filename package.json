@@ -2,10 +2,12 @@
   "name": "communityweb",
   "version": "1.0.0",
   "scripts": {
-    "collect": "node collector/collect.js",
+    "collect": "node pipeline/collect.js",
     "build": "node scripts/build.js",
     "update": "npm run collect && npm run build",
-    "serve": "npx --yes serve dist"
+    "serve": "npx --yes serve dist",
+    "sample": "node pipeline/sample.js",
+    "test": "node --test pipeline/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -16,12 +18,11 @@
   },
   "homepage": "https://github.com/byungsooim-collab/Communityweb#readme",
   "type": "module",
-  "dependencies": {
-    "cheerio": "^1.2.0",
-    "iconv-lite": "^0.7.3"
-  },
   "private": true,
   "engines": {
     "node": ">=22"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.8.0"
   }
 }

@@ -1,67 +1,54 @@
-# 커뮤베스트
+# 승부노트
 
-국내 주요 커뮤니티의 베스트(인기) 게시물을 모아 보여 주는 정적 웹사이트입니다.
-제목·원문 링크·추천/댓글/조회 수만 수집하고, 글을 읽을 때는 원문 커뮤니티로 이동합니다.
+스포츠토토 대상 종목(축구·농구·야구·배구) 경기의 승·무·패 확률을 통계 모델로 계산하고,
+부상자·최근 경기력·맞대결 기록과 AI 해설을 함께 보여 주는 정적 사이트입니다. Firebase Hosting 에 배포합니다.
 
 ## 구조
 
 | 경로 | 역할 |
 | --- | --- |
-| `collector/sources.js` | 수집 대상 커뮤니티와 사이트별 파서 |
-| `collector/collect.js` | robots.txt 확인 → 목록 수집 → `data/posts.json` 갱신 |
-| `scripts/build.js` | `data/posts.json` → `dist/` 정적 사이트 생성 (종합 인기 점수 계산 포함) |
-| `site/` | 스타일과 화면 스크립트(필터·정렬·검색·인피드 광고) |
-| `site.config.json` | 사이트 이름, 주소, 연락처, 광고 설정 |
-| `.github/workflows/update.yml` | 30분마다 수집·빌드·GitHub Pages 배포 |
+| `site.config.json` | 사이트 정보, 대상 리그, API 한도, AI 해설, 광고 설정 |
+| `pipeline/apisports.js` | API-Sports 클라이언트(호출 한도 관리, 종목별 응답 정규화) |
+| `pipeline/model.js` | 확률 모델: 축구 포아송, 그 외 Elo, 부상 보정 |
+| `pipeline/analyze.js` | 경기별 분석 데이터 조립, 백테스트, 적중 기록 |
+| `pipeline/commentary.js` | Claude API 로 한국어 해설 작성(근거 데이터가 같으면 캐시 재사용) |
+| `pipeline/collect.js` | 실제 수집 → `data/matches.json` |
+| `pipeline/sample.js` | 가상 팀으로 만든 샘플 데이터(키 없이 화면 확인용) |
+| `scripts/build.js` | `data/` → `dist/` 정적 사이트 |
+| `.github/workflows/update.yml` | 하루 3회 수집·분석·Firebase 배포 |
 
 ## 실행
 
 ```bash
 npm install
-npm run update   # 수집 + 빌드
-npm run serve    # dist/ 미리보기
+npm test                 # 모델·정규화 테스트
+npm run sample           # 샘플 데이터 생성 (API 키 불필요)
+npm run build && npm run serve
+
+APISPORTS_KEY=... npm run collect   # 실제 데이터 (ANTHROPIC_API_KEY 가 있으면 AI 해설 포함)
 ```
 
-## 배포
+## 실제 데이터 연결
 
-1. `site.config.json` 의 `siteUrl`, `contactEmail`, `botUserAgent` 안의 주소를 실제 값으로 바꿉니다.
-2. GitHub 저장소 **Settings → Pages → Source** 를 **GitHub Actions** 로 설정합니다.
-3. 기본 브랜치(`main`)에 올리면 워크플로가 30분마다 수집해서 배포합니다.
+1. https://dashboard.api-football.com 에서 무료 가입 후 API 키를 발급받습니다. 같은 키로 축구·농구·야구·배구 API 를 모두 씁니다(종목별 하루 100회).
+2. `APISPORTS_KEY=... npm run collect epl` 로 한 리그만 먼저 돌려 봅니다.
+   - **아직 실제 키로 검증하지 못했습니다.** 응답 구조는 공식 문서 기준으로 작성했고, 무료 요금제가 현재 시즌 조회를 막는 경우 오류 메시지가 그대로 출력됩니다.
+   - `site.config.json` 의 리그 `apiId` 중 KBL·V리그 등은 확인이 필요합니다: `APISPORTS_KEY=... node scripts/leagues.js volleyball korea`
+3. AI 해설을 쓰려면 Anthropic API 키를 `ANTHROPIC_API_KEY` 로 넣습니다. 경기당 한 번만 작성하고 근거 데이터가 바뀔 때만 다시 씁니다. 끄려면 `commentary.enabled` 를 `false` 로 둡니다.
 
-`dist/` 는 순수 정적 파일이라 Cloudflare Pages, Netlify, Vercel 등 어디에나 올릴 수 있습니다.
+## Firebase 배포
 
-## 광고 (Google AdSense)
+1. Firebase 콘솔에서 프로젝트를 만들고 Hosting 을 켭니다(무료 Spark 요금제로 충분합니다).
+2. `.firebaserc` 의 `YOUR_FIREBASE_PROJECT_ID` 를 프로젝트 ID 로 바꿉니다.
+3. 직접 배포: `npx firebase-tools login && npm run build && npx firebase-tools deploy --only hosting`
+4. 자동 배포(GitHub Actions): 저장소 Settings 에 다음을 등록합니다.
+   - Secrets: `APISPORTS_KEY`, `ANTHROPIC_API_KEY`(선택), `FIREBASE_SERVICE_ACCOUNT`(Firebase 서비스 계정 JSON)
+   - Variables: `FIREBASE_PROJECT_ID`
+5. 도메인은 Firebase 콘솔 Hosting → 커스텀 도메인에서 연결하고, `site.config.json` 의 `siteUrl` 을 바꿉니다.
 
-`site.config.json` 의 `ads` 를 채우면 광고 코드와 `ads.txt` 가 자동으로 들어갑니다.
+## 한계
 
-```json
-"ads": {
-  "adsenseClient": "ca-pub-0000000000000000",
-  "slots": { "top": "1111111111", "infeed": "2222222222", "sidebar": "3333333333", "bottom": "4444444444" },
-  "infeedEvery": 12,
-  "showPlaceholders": false
-}
-```
-
-- `top` 상단 배너, `infeed` 목록 사이(12개마다), `sidebar` PC 우측, `bottom` 목록 하단
-- `showPlaceholders: true` 이면 광고 ID가 없을 때 "광고 영역" 자리 표시를 보여 줍니다. 실서비스에서는 `false` 로 두세요.
-
-## 수집 대상
-
-현재: 디시인사이드(실시간 베스트), 루리웹(유머 베스트), 인벤(오픈이슈갤러리), 보배드림(베스트), 웃긴대학(웃긴자료), 개드립.
-
-다음 사이트는 **의도적으로 제외**했습니다.
-
-| 사이트 | 이유 |
-| --- | --- |
-| 클리앙, SLR클럽, 네이트판 | robots.txt 가 해당 목록의 자동 수집을 금지 |
-| 에펨코리아, 더쿠, 인스티즈, 오늘의유머, 아카라이브, 다모앙 | CAPTCHA·보안 확인으로 자동 접근 차단 |
-| 뽐뿌, MLB파크, 82쿡 | 서버에서 접속 거부(403/연결 끊김) |
-
-이런 사이트를 넣으려면 해당 운영사의 허락(제휴·공식 API·RSS)이 필요합니다.
-
-### 커뮤니티 추가하기
-
-`collector/sources.js` 에 항목을 추가하고 `node collector/collect.js <id>` 로 확인합니다.
-수집기는 매번 robots.txt 를 확인하므로, 금지된 주소는 추가해도 자동으로 건너뜁니다.
-한 사이트가 실패해도 나머지는 계속 갱신되며, 실패한 사이트는 기존 데이터를 유지합니다.
+- 부상자 정보는 축구만 제공됩니다. 농구·야구·배구는 부상이 확률에 반영되지 않습니다.
+- 무료 한도 때문에 부상 선수 기록 조회는 실행당 20명으로 제한합니다(`api.maxPlayerLookupsPerRun`).
+- 베트맨의 회차별 대상 경기 목록과는 연동하지 않습니다. 설정한 리그의 향후 3일 경기를 모두 분석합니다.
+- 확률은 추정치이며 결과를 보장하지 않습니다. 사설 베팅 사이트 광고·링크는 넣지 않습니다.
