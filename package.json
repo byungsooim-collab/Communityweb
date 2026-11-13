@@ -1,0 +1,27 @@
+{
+  "name": "communityweb",
+  "version": "1.0.0",
+  "scripts": {
+    "collect": "node collector/collect.js",
+    "build": "node scripts/build.js",
+    "update": "npm run collect && npm run build",
+    "serve": "npx --yes serve dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byungsooim-collab/Communityweb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/byungsooim-collab/Communityweb/issues"
+  },
+  "homepage": "https://github.com/byungsooim-collab/Communityweb#readme",
+  "type": "module",
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "iconv-lite": "^0.7.3"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  }
+}

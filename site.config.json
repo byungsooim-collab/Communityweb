@@ -1,0 +1,20 @@
+{
+  "siteName": "커뮤베스트",
+  "tagline": "대한민국 커뮤니티 인기글, 한 곳에서",
+  "description": "디시인사이드, 루리웹, 클리앙, 인벤, 보배드림 등 국내 주요 커뮤니티의 베스트 게시물을 실시간으로 모아 보여주는 종합 인기글 플랫폼.",
+  "siteUrl": "https://example.com",
+  "contactEmail": "contact@example.com",
+  "botUserAgent": "Mozilla/5.0 (compatible; CommuBestBot/1.0; +https://example.com/about.html)",
+  "retentionHours": 48,
+  "ads": {
+    "adsenseClient": "",
+    "slots": {
+      "top": "",
+      "infeed": "",
+      "sidebar": "",
+      "bottom": ""
+    },
+    "infeedEvery": 12,
+    "showPlaceholders": true
+  }
+}
