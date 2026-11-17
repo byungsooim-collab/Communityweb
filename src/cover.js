@@ -2,12 +2,12 @@
 const PALETTES = {
   공지: ['#ffd6a5', '#ffadad'], '육성 철학': ['#d0bfff', '#bde0fe'], '아빠의 역할': ['#ffd6a5', '#fdffb6'],
   '우리가 해 온 것': ['#fde4cf', '#ffcfd2'], '먹고 자고 쉬기': ['#ffc6ff', '#ffadad'], 성장기록: ['#bde0fe', '#a2d2ff'],
-  '경기·훈련 일지': ['#caffbf', '#9bf6ff'],
+  '경기·훈련 일지': ['#caffbf', '#9bf6ff'], '전술 노트': ['#c7f9cc', '#a0c4ff'],
 };
 const hash = (s) => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-export function coverSvg(post) {
+export function coverSvg(post, emoji = '') {
   const [sky1, sky2] = PALETTES[post.category] || ['#b9fbc0', '#a3c4f3'];
   const h = hash(post.slug);
   const ballX = 520 + (h % 420), ballY = 330 + (h % 70);
@@ -36,6 +36,9 @@ ${[0, 1, 2, 3, 4, 5].map((i) => `<path d="M${i * 240 - 60} 630 L${i * 200 + 40} 
 <g font-family="Jua, 'Apple SD Gothic Neo', sans-serif" fill="#173b2a">
 <rect x="60" y="40" rx="22" width="${Math.max(140, post.category.length * 34 + 60)}" height="54" fill="#fff" opacity=".9"/>
 <text x="90" y="78" font-size="30">${esc(post.category)}</text>
+</g>
+${emoji ? `<g transform="translate(1040 470)"><circle r="78" fill="#fff" opacity=".92"/><text y="30" font-size="84" text-anchor="middle">${esc(emoji)}</text></g>` : ''}
+<g>
 </g>
 <text x="1140" y="600" text-anchor="end" font-family="Jua, sans-serif" font-size="26" fill="#fff" opacity=".9">SOCCER DADDY</text>
 </svg>`;

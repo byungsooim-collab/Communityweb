@@ -11,6 +11,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const config = JSON.parse(await fs.readFile(path.join(root, 'blog.config.json'), 'utf8'));
 const player = JSON.parse(await fs.readFile(path.join(root, 'player.json'), 'utf8'));
+const journey = JSON.parse(await fs.readFile(path.join(root, 'journey.json'), 'utf8').catch(() => 'null'));
 const showDrafts = process.argv.includes('--drafts');
 const now = Date.now();
 const siteUrl = config.siteUrl.replace(/\/$/, '');
@@ -31,7 +32,7 @@ for (const file of files) {
   if (!data.title) throw new Error(`${file}: title 이 없습니다`);
   const words = content.replace(/\s+/g, '').length;
   all.push({
-    slug, file, date, title: data.title, summary: data.summary || '', category: data.category || '일기',
+    slug, file, date, title: data.title, summary: data.summary || '', category: data.category || '일기', series: data.series || '',
     tags: data.tags || [], cover: data.cover || '', coverAlt: data.coverAlt || data.title, mood: data.mood || '',
     stats: data.stats || {}, html: marked.parse(content), readMin: Math.max(1, Math.round(words / 500)),
   });
@@ -80,9 +81,10 @@ ${fontLinks}
 <link rel="stylesheet" href="${base}style.css">
 </head>
 <body>
+${type === 'article' ? '<div class="progress" aria-hidden="true"><i></i></div>' : ''}
 <header class="site-header"><div class="wrap">
   <a class="brand" href="${base}"><span class="brand-ball" aria-hidden="true">⚽</span><span>${esc(config.title)}</span><small>${esc(config.titleEn)}</small></a>
-  <nav class="nav"><a href="${base}">글 목록</a><a href="${base}about/">주니어 소개</a></nav>
+  <nav class="nav"><a href="${base}">글 목록</a>${journey ? `<a href="${base}journey/">성장 연대기</a>` : ''}<a href="${base}about/">주니어 소개</a></nav>
 </div></header>
 ${body}
 <footer class="site-footer"><div class="wrap">
@@ -90,6 +92,7 @@ ${body}
   <p>${esc(player.note)}</p>
   <p><a href="${base}feed.xml">RSS 구독</a></p>
 </div></footer>
+${type === 'article' ? `<script>(()=>{const b=document.querySelector('.progress i');const f=()=>{const h=document.documentElement;const m=h.scrollHeight-h.clientHeight;b.style.width=(m>0?h.scrollTop/m*100:0)+'%'};addEventListener('scroll',f,{passive:true});f()})();</script>` : ''}
 </body>
 </html>
 `;
@@ -106,7 +109,7 @@ function statusCard(base) {
   }).join('');
   const cond = current.condition;
   return `<aside class="status" aria-label="선수 상태창">
-  <div class="status-head"><div class="avatar" aria-hidden="true">${player.backNumber}</div><div><div class="status-name">${esc(player.nickname)} <small>${player.age}살 · ${esc(player.position)}</small></div><div class="status-cond">${esc(player.condition?.label || '컨디션')}: <b>${measured(cond) ? esc(cond) : '측정 전'}</b></div></div></div>
+  <div class="status-head"><div class="avatar" aria-hidden="true">${player.backNumber}</div><div><div class="status-name">${esc(player.nickname)} <small>${player.age}살 · ${esc(player.position)}</small></div>${player.team ? `<div class="status-cond">소속: <b>${esc(player.team)}</b></div>` : ''}<div class="status-cond">${esc(player.condition?.label || '컨디션')}: <b>${measured(cond) ? esc(cond) : '측정 전'}</b></div></div></div>
   <div class="profile">${profileRows}</div>
   <ul class="stats">${bars}</ul>
   <p class="status-note">${posts.some((p) => p.changes.length) ? `최근 변화: ${esc(shortDate([...posts].reverse().find((p) => p.changes.length).date))}` : '아직 측정 전입니다. 첫 측정 후 채워집니다.'}</p>
@@ -137,6 +140,18 @@ const pillarSection = (base) => pillars.length ? `<section class="pillars wrap" 
   const inner = `<span class="pillar-emoji" aria-hidden="true">${x.emoji || '⚽'}</span><b>${esc(x.category)}</b><span class="pillar-desc">${esc(x.desc)}</span><small>${n ? `글 ${n}편` : '곧 연재'}</small>`;
   return n ? `<a class="pillar" href="${base}category/${encodeURIComponent(x.category)}/">${inner}</a>` : `<div class="pillar soon">${inner}</div>`;
 }).join('')}</section>` : '';
+const seriesMap = new Map();
+for (const p of posts) if (p.series) { if (!seriesMap.has(p.series)) seriesMap.set(p.series, []); seriesMap.get(p.series).push(p); }
+const seriesBox = (p, base) => {
+  const list = seriesMap.get(p.series);
+  if (!list || list.length < 2) return '';
+  const idx = list.indexOf(p);
+  return `<nav class="series-box" aria-label="연재 목차"><div class="series-head"><span>연재</span><b>${esc(p.series)}</b><small>${idx + 1} / ${list.length}화</small></div><ol>${list.map((x) => `<li${x === p ? ' aria-current="page"' : ''}><a href="${base}posts/${x.slug}/">${esc(x.title)}</a></li>`).join('')}</ol></nav>`;
+};
+const activeSeries = () => [...seriesMap].filter(([, list]) => list.length >= 2);
+const seriesSection = (base) => activeSeries().length ? `<section class="series-strip wrap" aria-label="연재"><h2>연재 중</h2><div class="series-cards">${activeSeries().map(([name, list]) => `<a class="series-card" href="${base}posts/${list[0].slug}/"><small>${list.length}편 · 1화부터 읽기</small><b>${esc(name)}</b><span>${esc(list[list.length - 1].title)}</span></a>`).join('')}</div></section>` : '';
+const firstChronicle = seriesMap.get(journey?.title)?.[0];
+
 const listBody = (list, base, heading = '') => `<main class="wrap layout">
 <div class="main-col">
 ${heading}
@@ -149,7 +164,7 @@ ${list.length ? `<div class="grid">${list.map((p, i) => postCard(p, base, !headi
 
 out.set('index.html', page({
   title: `${config.title} - ${config.tagline}`, description: config.description, canonical: '/', base: '',
-  body: `<section class="hero"><div class="wrap"><p class="hero-kicker">${esc(config.titleEn)}</p><h1>${esc(config.tagline)}</h1><p>${esc(config.description)}</p></div></section>\n${pillarSection('')}\n${listBody(newest, '')}`,
+  body: `<section class="hero"><div class="wrap"><p class="hero-kicker">${esc(config.titleEn)}</p><h1>${esc(config.tagline)}</h1><p>${esc(config.description)}</p><div class="hero-cta">${firstChronicle ? `<a class="btn primary" href="posts/${firstChronicle.slug}/">처음이라면, 연대기 1화부터 →</a>` : ''}${journey ? '<a class="btn" href="journey/">성장 연대기 한눈에 보기</a>' : ''}</div></div></section>\n${seriesSection('')}\n${pillarSection('')}\n${listBody(newest, '')}`,
 }));
 
 for (const c of categories) {
@@ -176,6 +191,7 @@ posts.forEach((p, i) => {
   </header>
   <figure class="post-cover">${coverTag(p, base)}</figure>
   <div class="prose">${p.html}</div>
+  ${seriesBox(p, base)}
   ${changes}
   ${p.tags.length ? `<p class="tags">${p.tags.map((t) => `<span>#${esc(t)}</span>`).join('')}</p>` : ''}
   <nav class="pager">${prev ? `<a href="${base}posts/${prev.slug}/"><small>← 이전 글</small>${esc(prev.title)}</a>` : '<span></span>'}${next ? `<a class="next" href="${base}posts/${next.slug}/"><small>다음 글 →</small>${esc(next.title)}</a>` : '<span></span>'}</nav>
@@ -195,15 +211,36 @@ out.set('about/index.html', page({
 <div class="side-col">${statusCard('../')}</div></main>`,
 }));
 
+if (journey) {
+  const base = '../';
+  const linkOf = (slug) => posts.find((p) => p.slug === slug);
+  const item = (e, kind) => {
+    const post = linkOf(e.post);
+    return `<li class="tl-item ${kind}"><span class="tl-dot" aria-hidden="true"></span><div class="tl-card"><small>${esc(e.when)}</small><b>${esc(e.title)}</b><p>${esc(e.text)}</p>${post ? `<a href="${base}posts/${post.slug}/">이야기 읽기 →</a>` : e.post ? '<span class="tl-soon">글 공개 예정</span>' : ''}</div></li>`;
+  };
+  out.set('journey/index.html', page({
+    title: `성장 연대기 - ${config.title}`, description: journey.intro, canonical: '/journey/', base,
+    body: `<main class="wrap journey"><header class="journey-head"><p class="hero-kicker">${esc(config.titleEn)}</p><h1>${esc(journey.title)}</h1><p>${esc(journey.intro)}</p></header>
+<ol class="timeline">
+<li class="tl-label">지나온 길</li>
+${journey.past.map((e) => item(e, 'past')).join('\n')}
+<li class="tl-label now-label">지금</li>
+${item(journey.now, 'now')}
+<li class="tl-label">앞으로 가고 싶은 길</li>
+${journey.future.map((e) => item(e, 'future')).join('\n')}
+</ol></main>`,
+  }));
+}
+
 out.set('404.html', page({ title: `페이지를 찾을 수 없어요 - ${config.title}`, description: '', canonical: '/404.html', base: '/', body: '<main class="wrap"><p class="empty">공이 골대를 벗어났어요. 없는 페이지입니다.<br><a href="./">처음으로</a></p></main>' }));
 
 const rssItems = newest.slice(0, 30).map((p) => `<item><title>${esc(p.title)}</title><link>${esc(`${siteUrl}/posts/${p.slug}/`)}</link><guid>${esc(`${siteUrl}/posts/${p.slug}/`)}</guid><pubDate>${p.date.toUTCString()}</pubDate><category>${esc(p.category)}</category><description>${esc(p.summary)}</description></item>`).join('\n');
 out.set('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>${esc(config.title)}</title><link>${esc(siteUrl)}/</link><description>${esc(config.description)}</description><language>ko</language>\n${rssItems}\n</channel></rss>\n`);
-out.set('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${['/', '/about/', ...newest.map((p) => `/posts/${p.slug}/`)].map((u) => `<url><loc>${esc(siteUrl + u)}</loc></url>`).join('\n')}\n</urlset>\n`);
+out.set('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${['/', '/about/', ...(journey ? ['/journey/'] : []), ...newest.map((p) => `/posts/${p.slug}/`)].map((u) => `<url><loc>${esc(siteUrl + u)}</loc></url>`).join('\n')}\n</urlset>\n`);
 out.set('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
 out.set('favicon.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#2f9e5b"/><text x="32" y="44" font-size="34" text-anchor="middle">⚽</text></svg>`);
 out.set('.nojekyll', '');
-for (const p of posts) if (!p.cover) out.set(`covers/${p.slug}.svg`, coverSvg(p));
+for (const p of posts) if (!p.cover) out.set(`covers/${p.slug}.svg`, coverSvg(p, pillarOf(p.category)?.emoji));
 
 // ---------- 쓰기 ----------
 await fs.rm(dist, { recursive: true, force: true });

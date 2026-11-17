@@ -5,18 +5,65 @@
   "backNumber": 8,
   "note": "블로그에서는 아이 실명과 학교, 얼굴을 공개하지 않습니다. 그림은 실제 아이와 닮지 않은 AI 일러스트입니다.",
   "profile": [
-    { "key": "height", "label": "키", "unit": "cm", "value": null },
-    { "key": "weight", "label": "몸무게", "unit": "kg", "value": null },
-    { "key": "foot", "label": "주발", "unit": "", "value": null }
+    {
+      "key": "height",
+      "label": "키",
+      "unit": "cm",
+      "value": null
+    },
+    {
+      "key": "weight",
+      "label": "몸무게",
+      "unit": "kg",
+      "value": null
+    },
+    {
+      "key": "foot",
+      "label": "주발",
+      "unit": "",
+      "value": null
+    }
   ],
   "stats": [
-    { "key": "stamina", "label": "체력", "value": null },
-    { "key": "speed", "label": "스피드", "value": null },
-    { "key": "dribble", "label": "드리블", "value": null },
-    { "key": "pass", "label": "패스", "value": null },
-    { "key": "shoot", "label": "슈팅", "value": null },
-    { "key": "vision", "label": "시야", "value": null },
-    { "key": "mental", "label": "멘탈", "value": null }
+    {
+      "key": "stamina",
+      "label": "체력",
+      "value": null
+    },
+    {
+      "key": "speed",
+      "label": "스피드",
+      "value": null
+    },
+    {
+      "key": "dribble",
+      "label": "드리블",
+      "value": null
+    },
+    {
+      "key": "pass",
+      "label": "패스",
+      "value": null
+    },
+    {
+      "key": "shoot",
+      "label": "슈팅",
+      "value": null
+    },
+    {
+      "key": "vision",
+      "label": "시야",
+      "value": null
+    },
+    {
+      "key": "mental",
+      "label": "멘탈",
+      "value": null
+    }
   ],
-  "condition": { "label": "컨디션", "value": null }
+  "condition": {
+    "label": "컨디션",
+    "value": null
+  },
+  "team": "서울의 중학교 팀"
 }
