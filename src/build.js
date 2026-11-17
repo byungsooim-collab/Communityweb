@@ -129,7 +129,14 @@ const postCard = (p, base, feature = false) => `<article class="card${feature ? 
 const out = new Map(); // 경로 → 내용
 const newest = [...posts].reverse();
 
-const categories = [...new Set(newest.map((p) => p.category))];
+const pillars = config.pillars || [];
+const pillarOf = (c) => pillars.find((x) => x.category === c);
+const categories = [...new Set([...pillars.map((x) => x.category).filter((c) => newest.some((p) => p.category === c)), ...newest.map((p) => p.category)])];
+const pillarSection = (base) => pillars.length ? `<section class="pillars wrap" aria-label="블로그 주제"><h2 class="sr">이 블로그에서 다루는 이야기</h2>${pillars.map((x) => {
+  const n = newest.filter((p) => p.category === x.category).length;
+  const inner = `<span class="pillar-emoji" aria-hidden="true">${x.emoji || '⚽'}</span><b>${esc(x.category)}</b><span class="pillar-desc">${esc(x.desc)}</span><small>${n ? `글 ${n}편` : '곧 연재'}</small>`;
+  return n ? `<a class="pillar" href="${base}category/${encodeURIComponent(x.category)}/">${inner}</a>` : `<div class="pillar soon">${inner}</div>`;
+}).join('')}</section>` : '';
 const listBody = (list, base, heading = '') => `<main class="wrap layout">
 <div class="main-col">
 ${heading}
@@ -142,14 +149,14 @@ ${list.length ? `<div class="grid">${list.map((p, i) => postCard(p, base, !headi
 
 out.set('index.html', page({
   title: `${config.title} - ${config.tagline}`, description: config.description, canonical: '/', base: '',
-  body: `<section class="hero"><div class="wrap"><p class="hero-kicker">${esc(config.titleEn)}</p><h1>${esc(config.tagline)}</h1><p>${esc(config.description)}</p></div></section>\n${listBody(newest, '')}`,
+  body: `<section class="hero"><div class="wrap"><p class="hero-kicker">${esc(config.titleEn)}</p><h1>${esc(config.tagline)}</h1><p>${esc(config.description)}</p></div></section>\n${pillarSection('')}\n${listBody(newest, '')}`,
 }));
 
 for (const c of categories) {
   const base = '../../';
   out.set(`category/${c}/index.html`, page({
     title: `${c} - ${config.title}`, description: `${config.title}의 ${c} 글 모음`, canonical: `/category/${encodeURIComponent(c)}/`, base,
-    body: listBody(newest.filter((p) => p.category === c), base, `<h1 class="list-title">${esc(c)}</h1>`),
+    body: listBody(newest.filter((p) => p.category === c), base, `<h1 class="list-title">${esc(pillarOf(c)?.emoji ? pillarOf(c).emoji + ' ' : '')}${esc(c)}</h1>${pillarOf(c) ? `<p class="list-desc">${esc(pillarOf(c).desc)}</p>` : ''}`),
   }));
 }
 
@@ -182,6 +189,7 @@ out.set('about/index.html', page({
   title: `주니어 소개 - ${config.title}`, description: `${config.title}의 주인공, ${player.age}살 ${player.position} 주니어를 소개합니다.`, canonical: '/about/', base: '../',
   body: `<main class="wrap post-wrap"><article class="post"><header class="post-head"><h1>주니어를 소개합니다</h1><p class="lead">${player.age}살, 등번호 ${player.backNumber}번 ${esc(player.position)}. 이 블로그의 주인공입니다.</p></header>
 <div class="prose"><p>${esc(config.description)}</p>
+<h2>이 블로그에서 다루는 이야기</h2><ul>${pillars.map((x) => `<li><b>${esc(x.category)}</b>: ${esc(x.desc)}</li>`).join('')}</ul>
 <h2>블로그 규칙</h2><ul><li>${esc(player.note)}</li><li>상태창 점수는 프로 선수와 비교한 점수가 아니라, 첫 측정을 기준으로 한 우리 아이만의 성장 지표입니다.</li><li>글은 아빠의 관찰과 기록이며, 의학·전문 코칭 조언이 아닙니다.</li></ul>
 <h2>지금까지의 기록</h2><ul>${newest.map((p) => `<li><a href="../posts/${p.slug}/">${esc(p.title)}</a> <small>${shortDate(p.date)}</small></li>`).join('')}</ul></div></article>
 <div class="side-col">${statusCard('../')}</div></main>`,

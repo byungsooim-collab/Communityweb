@@ -1,7 +1,8 @@
 // 그림이 아직 없는 글에 쓰는 일러스트풍 표지(SVG). 카테고리마다 하늘색이 달라진다.
 const PALETTES = {
-  공지: ['#ffd6a5', '#ffadad'], 성장기록: ['#bde0fe', '#a2d2ff'], 경기: ['#caffbf', '#9bf6ff'],
-  훈련: ['#fdffb6', '#ffd6a5'], 식단: ['#ffc6ff', '#ffadad'], 멘탈: ['#d0bfff', '#bde0fe'],
+  공지: ['#ffd6a5', '#ffadad'], '육성 철학': ['#d0bfff', '#bde0fe'], '아빠의 역할': ['#ffd6a5', '#fdffb6'],
+  '우리가 해 온 것': ['#fde4cf', '#ffcfd2'], '먹고 자고 쉬기': ['#ffc6ff', '#ffadad'], 성장기록: ['#bde0fe', '#a2d2ff'],
+  '경기·훈련 일지': ['#caffbf', '#9bf6ff'],
 };
 const hash = (s) => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));

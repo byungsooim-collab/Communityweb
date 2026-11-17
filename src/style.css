@@ -121,3 +121,16 @@ h1, h2, h3, .brand, .status-name, .hero-kicker { font-family: "Jua", "Pretendard
 .site-footer p { margin: 4px 0; }
 a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
 @media (max-width: 520px) { .brand small { display: none; } .nav { gap: 12px; font-size: 14px; } }
+
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.pillars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 24px; }
+@media (min-width: 720px) { .pillars { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.pillar { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr auto; column-gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; text-decoration: none; transition: border-color .2s, transform .2s; }
+a.pillar:hover { border-color: var(--green); transform: translateY(-2px); }
+.pillar.soon { opacity: .75; }
+.pillar-emoji { grid-row: 1 / 4; font-size: 26px; line-height: 1.2; }
+.pillar b { font-family: "Jua", sans-serif; font-weight: 400; font-size: 18px; }
+.pillar-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.pillar small { font-size: 12px; color: var(--green); font-weight: 700; margin-top: 4px; }
+.pillar.soon small { color: var(--muted); }
+.list-desc { margin: -8px 0 20px; color: var(--muted); }
