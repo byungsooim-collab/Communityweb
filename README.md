@@ -1,65 +1,26 @@
-# 승부노트
+# 사커대디 (Soccer Daddy)
 
-스포츠토토 대상 종목(축구·농구·야구·배구) 경기의 승·무·패 확률을 통계 모델로 계산하고,
-부상자·최근 경기력·맞대결 기록과 AI 해설을 함께 보여 주는 정적 사이트입니다. Firebase Hosting 에 배포합니다.
-
-## 구조
-
-| 경로 | 역할 |
-| --- | --- |
-| `site.config.json` | 사이트 정보, 대상 리그, API 한도, AI 해설, 광고 설정 |
-| `pipeline/apisports.js` | API-Sports 클라이언트(호출 한도 관리, 종목별 응답 정규화) |
-| `pipeline/model.js` | 확률 모델: 축구 포아송, 그 외 Elo, 부상 보정 |
-| `pipeline/analyze.js` | 경기별 분석 데이터 조립, 백테스트, 적중 기록 |
-| `pipeline/commentary.js` | Claude API 로 한국어 해설 작성(근거 데이터가 같으면 캐시 재사용) |
-| `pipeline/news.js` | 국내 리그 팀의 부상 관련 뉴스(네이버 뉴스 검색 API). 화면 표시 전용 |
-| `pipeline/collect.js` | 실제 수집 → `data/matches.json` |
-| `pipeline/sample.js` | 가상 팀으로 만든 샘플 데이터(키 없이 화면 확인용) |
-| `scripts/build.js` | `data/` → `dist/` 정적 사이트 |
-| `.github/workflows/update.yml` | 하루 3회 수집·분석·Firebase 배포 |
-
-## 실행
+13살 미드필더 아들을 다마고치처럼 키우는 축구 성장 블로그. 마크다운 글을 정적 사이트로 만들어 GitHub Pages 에 올립니다.
 
 ```bash
 npm install
-npm test                 # 모델·정규화 테스트
-npm run sample           # 샘플 데이터 생성 (API 키 불필요)
-npm run build && npm run serve
-
-APISPORTS_KEY=... npm run collect   # 실제 데이터 (ANTHROPIC_API_KEY 가 있으면 AI 해설 포함)
+npm run build     # 공개 시각이 지난 글만
+npm run preview   # 예약 글까지 포함
+npm run serve     # dist/ 미리보기
 ```
 
-## 실제 데이터 연결
+| 경로 | 역할 |
+| --- | --- |
+| `posts/*.md` | 글 (작성 규칙은 `POSTING.md`) |
+| `images/` | 글에 들어가는 그림 |
+| `player.json` | 상태창 항목과 기본 프로필 |
+| `blog.config.json` | 블로그 이름, 소개, 주소 |
+| `src/` | 빌드 스크립트, 자동 표지, 스타일 |
+| `.github/workflows/deploy.yml` | `main` 에 올리거나 매일 09:05·19:05(KST)에 자동 배포 |
 
-1. https://dashboard.api-football.com 에서 무료 가입 후 API 키를 발급받습니다. 같은 키로 축구·농구·야구·배구 API 를 모두 씁니다(종목별 하루 100회).
-2. `APISPORTS_KEY=... npm run collect epl` 로 한 리그만 먼저 돌려 봅니다.
-   - **아직 실제 키로 검증하지 못했습니다.** 응답 구조는 공식 문서 기준으로 작성했고, 무료 요금제가 현재 시즌 조회를 막는 경우 오류 메시지가 그대로 출력됩니다.
-   - `site.config.json` 의 리그 `apiId` 중 KBL·V리그 등은 확인이 필요합니다: `APISPORTS_KEY=... node scripts/leagues.js volleyball korea`
-3. AI 해설을 쓰려면 Anthropic API 키를 `ANTHROPIC_API_KEY` 로 넣습니다. 경기당 한 번만 작성하고 근거 데이터가 바뀔 때만 다시 씁니다. 끄려면 `commentary.enabled` 를 `false` 로 둡니다.
+## 처음 한 번 설정
 
-## 부상 관련 뉴스 (국내 리그)
-
-K리그·KBO·KBL·V리그 경기 상세 페이지에 팀별 "부상 관련 뉴스"를 보여 줍니다.
-
-- 키가 없어도 네이버 뉴스 검색으로 가는 링크는 항상 나옵니다.
-- https://developers.naver.com 에서 애플리케이션을 등록하고 검색 API 를 추가한 뒤 `NAVER_CLIENT_ID`, `NAVER_CLIENT_SECRET` 를 넣으면 최신 기사 제목 4건이 함께 표시됩니다.
-- 검색 결과는 제목·링크·날짜를 그대로 보여 주기만 하며, 확률 계산과 AI 해설에는 넣지 않습니다(네이버 검색 API 약관의 AI 이용 제한 때문).
-- 네이버가 검색 API 를 "네이버 API 허브"로 옮기는 중이라 주소가 바뀌면 `site.config.json` 의 `news.endpoint` 를 수정합니다. **이 연동은 실제 키로 검증하지 못했습니다.**
-- 영문 팀명 → 한글 팀명 매칭표(`pipeline/news.js` 의 `TEAMS`)는 실제 API 팀명으로 확인이 필요합니다. 매칭되지 않는 팀은 뉴스 영역이 나오지 않습니다.
-
-## Firebase 배포
-
-1. Firebase 콘솔에서 프로젝트를 만들고 Hosting 을 켭니다(무료 Spark 요금제로 충분합니다).
-2. `.firebaserc` 의 `YOUR_FIREBASE_PROJECT_ID` 를 프로젝트 ID 로 바꿉니다.
-3. 직접 배포: `npx firebase-tools login && npm run build && npx firebase-tools deploy --only hosting`
-4. 자동 배포(GitHub Actions): 저장소 Settings 에 다음을 등록합니다.
-   - Secrets: `APISPORTS_KEY`, `ANTHROPIC_API_KEY`(선택), `NAVER_CLIENT_ID`·`NAVER_CLIENT_SECRET`(선택), `FIREBASE_SERVICE_ACCOUNT`(Firebase 서비스 계정 JSON)
-   - Variables: `FIREBASE_PROJECT_ID`
-5. 도메인은 Firebase 콘솔 Hosting → 커스텀 도메인에서 연결하고, `site.config.json` 의 `siteUrl` 을 바꿉니다.
-
-## 한계
-
-- 부상자 정보는 축구만 제공됩니다. 농구·야구·배구는 부상이 확률에 반영되지 않습니다.
-- 무료 한도 때문에 부상 선수 기록 조회는 실행당 20명으로 제한합니다(`api.maxPlayerLookupsPerRun`).
-- 베트맨의 회차별 대상 경기 목록과는 연동하지 않습니다. 설정한 리그의 향후 3일 경기를 모두 분석합니다.
-- 확률은 추정치이며 결과를 보장하지 않습니다. 사설 베팅 사이트 광고·링크는 넣지 않습니다.
+1. 저장소 Settings → General 에서 이름을 바꿉니다(예: `soccer-daddy`).
+2. Settings → Pages → Source 를 **GitHub Actions** 로 바꿉니다.
+3. 작업 브랜치를 `main` 에 병합하면 배포됩니다. 주소는 `https://<아이디>.github.io/<저장소이름>/` 입니다.
+4. `blog.config.json` 의 `siteUrl` 을 실제 주소로 바꿉니다(공유 미리보기·RSS 에 쓰임).

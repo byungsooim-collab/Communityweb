@@ -1,0 +1,210 @@
+// posts/*.md + player.json + blog.config.json → dist/ (GitHub Pages 에 올릴 정적 블로그)
+// 날짜가 아직 오지 않은 글은 빼고 만든다. 미리보기: node src/build.js --drafts
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import matter from 'gray-matter';
+import { marked } from 'marked';
+import { coverSvg } from './cover.js';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const dist = path.join(root, 'dist');
+const config = JSON.parse(await fs.readFile(path.join(root, 'blog.config.json'), 'utf8'));
+const player = JSON.parse(await fs.readFile(path.join(root, 'player.json'), 'utf8'));
+const showDrafts = process.argv.includes('--drafts');
+const now = Date.now();
+const siteUrl = config.siteUrl.replace(/\/$/, '');
+
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const KST = 'Asia/Seoul';
+const fmtDate = (d) => new Date(d).toLocaleDateString('ko-KR', { timeZone: KST, year: 'numeric', month: 'long', day: 'numeric' });
+const shortDate = (d) => new Date(d).toLocaleDateString('ko-KR', { timeZone: KST, month: 'numeric', day: 'numeric' });
+
+// ---------- 글 읽기 ----------
+const files = (await fs.readdir(path.join(root, 'posts'))).filter((f) => f.endsWith('.md')).sort();
+const all = [];
+for (const file of files) {
+  const { data, content } = matter(await fs.readFile(path.join(root, 'posts', file), 'utf8'));
+  const slug = file.replace(/\.md$/, '');
+  const date = new Date(data.date);
+  if (Number.isNaN(date.getTime())) throw new Error(`${file}: date 가 올바르지 않습니다`);
+  if (!data.title) throw new Error(`${file}: title 이 없습니다`);
+  const words = content.replace(/\s+/g, '').length;
+  all.push({
+    slug, file, date, title: data.title, summary: data.summary || '', category: data.category || '일기',
+    tags: data.tags || [], cover: data.cover || '', coverAlt: data.coverAlt || data.title, mood: data.mood || '',
+    stats: data.stats || {}, html: marked.parse(content), readMin: Math.max(1, Math.round(words / 500)),
+  });
+}
+all.sort((a, b) => a.date - b.date);
+const posts = all.filter((p) => showDrafts || p.date.getTime() <= now);
+const scheduled = all.length - posts.length;
+
+// ---------- 상태창: 글 순서대로 값을 덮어쓰며 변화량을 계산 ----------
+const fields = [...player.profile, ...player.stats, player.condition ? { key: 'condition', ...player.condition } : null].filter(Boolean);
+const current = Object.fromEntries(fields.map((f) => [f.key, f.value ?? null]));
+for (const p of posts) {
+  p.changes = [];
+  for (const [key, value] of Object.entries(p.stats)) {
+    const field = fields.find((f) => f.key === key);
+    if (!field) throw new Error(`${p.file}: stats 의 '${key}' 는 player.json 에 없는 항목입니다`);
+    const before = current[key];
+    current[key] = value;
+    p.changes.push({ label: field.label, unit: field.unit || '', before, after: value, diff: typeof value === 'number' && typeof before === 'number' ? Number((value - before).toFixed(1)) : null });
+  }
+}
+
+// ---------- 공통 틀 ----------
+const fontLinks = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">`;
+
+const page = ({ title, description, canonical, body, base, image = '', type = 'website' }) => `<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(description)}">
+<link rel="canonical" href="${esc(siteUrl + canonical)}">
+<meta property="og:type" content="${type}">
+<meta property="og:site_name" content="${esc(config.title)}">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(description)}">
+<meta property="og:url" content="${esc(siteUrl + canonical)}">
+${image ? `<meta property="og:image" content="${esc(siteUrl + '/' + image)}"><meta name="twitter:card" content="summary_large_image">` : ''}
+<meta name="theme-color" content="#2f9e5b">
+<link rel="icon" href="${base}favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="${esc(config.title)}" href="${base}feed.xml">
+${fontLinks}
+<link rel="stylesheet" href="${base}style.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="${base}"><span class="brand-ball" aria-hidden="true">⚽</span><span>${esc(config.title)}</span><small>${esc(config.titleEn)}</small></a>
+  <nav class="nav"><a href="${base}">글 목록</a><a href="${base}about/">주니어 소개</a></nav>
+</div></header>
+${body}
+<footer class="site-footer"><div class="wrap">
+  <p><b>${esc(config.title)}</b> · ${esc(config.tagline)}</p>
+  <p>${esc(player.note)}</p>
+  <p><a href="${base}feed.xml">RSS 구독</a></p>
+</div></footer>
+</body>
+</html>
+`;
+
+const coverOf = (p, base) => (p.cover ? `${base}${p.cover}` : `${base}covers/${p.slug}.svg`);
+const coverTag = (p, base, cls = '') => `<img class="${cls}" src="${esc(coverOf(p, base))}" alt="${esc(p.cover ? p.coverAlt : '')}" loading="lazy" width="1200" height="630">`;
+
+function statusCard(base) {
+  const measured = (v) => v !== null && v !== undefined && v !== '';
+  const profileRows = player.profile.map((f) => `<div class="prof"><span>${esc(f.label)}</span><b>${measured(current[f.key]) ? esc(current[f.key]) + esc(f.unit || '') : '측정 전'}</b></div>`).join('');
+  const bars = player.stats.map((f) => {
+    const v = current[f.key];
+    return `<li><span class="stat-label">${esc(f.label)}</span><span class="bar"><i style="width:${measured(v) ? Math.max(0, Math.min(100, v)) : 0}%"></i></span><b class="stat-val">${measured(v) ? esc(v) : '?'}</b></li>`;
+  }).join('');
+  const cond = current.condition;
+  return `<aside class="status" aria-label="선수 상태창">
+  <div class="status-head"><div class="avatar" aria-hidden="true">${player.backNumber}</div><div><div class="status-name">${esc(player.nickname)} <small>${player.age}살 · ${esc(player.position)}</small></div><div class="status-cond">${esc(player.condition?.label || '컨디션')}: <b>${measured(cond) ? esc(cond) : '측정 전'}</b></div></div></div>
+  <div class="profile">${profileRows}</div>
+  <ul class="stats">${bars}</ul>
+  <p class="status-note">${posts.some((p) => p.changes.length) ? `최근 변화: ${esc(shortDate([...posts].reverse().find((p) => p.changes.length).date))}` : '아직 측정 전입니다. 첫 측정 후 채워집니다.'}</p>
+  <a class="status-more" href="${base}about/">주니어 소개 보기 →</a>
+</aside>`;
+}
+
+const postCard = (p, base, feature = false) => `<article class="card${feature ? ' feature' : ''}">
+  <a href="${base}posts/${p.slug}/" class="card-link">
+    <div class="card-cover">${coverTag(p, base)}</div>
+    <div class="card-body">
+      <div class="meta"><span class="cat">${esc(p.category)}</span><time datetime="${p.date.toISOString()}">${fmtDate(p.date)}</time></div>
+      <h2>${esc(p.title)}</h2>
+      <p>${esc(p.summary)}</p>
+    </div>
+  </a>
+</article>`;
+
+// ---------- 페이지 생성 ----------
+const out = new Map(); // 경로 → 내용
+const newest = [...posts].reverse();
+
+const categories = [...new Set(newest.map((p) => p.category))];
+const listBody = (list, base, heading = '') => `<main class="wrap layout">
+<div class="main-col">
+${heading}
+${list.length ? `<div class="grid">${list.map((p, i) => postCard(p, base, !heading && i === 0)).join('\n')}</div>` : '<p class="empty">아직 올라온 글이 없습니다.</p>'}
+</div>
+<div class="side-col">${statusCard(base)}
+<nav class="cats card-plain" aria-label="카테고리"><h3>카테고리</h3>${categories.map((c) => `<a href="${base}category/${encodeURIComponent(c)}/">${esc(c)} <small>${newest.filter((p) => p.category === c).length}</small></a>`).join('')}</nav>
+</div>
+</main>`;
+
+out.set('index.html', page({
+  title: `${config.title} - ${config.tagline}`, description: config.description, canonical: '/', base: '',
+  body: `<section class="hero"><div class="wrap"><p class="hero-kicker">${esc(config.titleEn)}</p><h1>${esc(config.tagline)}</h1><p>${esc(config.description)}</p></div></section>\n${listBody(newest, '')}`,
+}));
+
+for (const c of categories) {
+  const base = '../../';
+  out.set(`category/${c}/index.html`, page({
+    title: `${c} - ${config.title}`, description: `${config.title}의 ${c} 글 모음`, canonical: `/category/${encodeURIComponent(c)}/`, base,
+    body: listBody(newest.filter((p) => p.category === c), base, `<h1 class="list-title">${esc(c)}</h1>`),
+  }));
+}
+
+posts.forEach((p, i) => {
+  const base = '../../';
+  const prev = posts[i - 1], next = posts[i + 1];
+  const changes = p.changes.length ? `<section class="levelup"><h2>📈 상태창 변화</h2><ul>${p.changes.map((c) => `<li><span>${esc(c.label)}</span><span class="from">${c.before ?? '측정 전'}${c.before != null ? esc(c.unit) : ''}</span><span class="arrow">→</span><b>${esc(c.after)}${esc(c.unit)}</b>${c.diff ? `<em class="${c.diff > 0 ? 'up' : 'down'}">${c.diff > 0 ? '+' : ''}${c.diff}</em>` : ''}</li>`).join('')}</ul></section>` : '';
+  out.set(`posts/${p.slug}/index.html`, page({
+    title: `${p.title} - ${config.title}`, description: p.summary || config.description, canonical: `/posts/${p.slug}/`, base, type: 'article',
+    image: p.cover || '',
+    body: `<main class="wrap post-wrap">
+<article class="post">
+  <header class="post-head">
+    <div class="meta"><a class="cat" href="${base}category/${encodeURIComponent(p.category)}/">${esc(p.category)}</a><time datetime="${p.date.toISOString()}">${fmtDate(p.date)}</time><span>${p.readMin}분 읽기</span>${p.mood ? `<span class="mood">오늘의 기분 · ${esc(p.mood)}</span>` : ''}</div>
+    <h1>${esc(p.title)}</h1>
+    ${p.summary ? `<p class="lead">${esc(p.summary)}</p>` : ''}
+  </header>
+  <figure class="post-cover">${coverTag(p, base)}</figure>
+  <div class="prose">${p.html}</div>
+  ${changes}
+  ${p.tags.length ? `<p class="tags">${p.tags.map((t) => `<span>#${esc(t)}</span>`).join('')}</p>` : ''}
+  <nav class="pager">${prev ? `<a href="${base}posts/${prev.slug}/"><small>← 이전 글</small>${esc(prev.title)}</a>` : '<span></span>'}${next ? `<a class="next" href="${base}posts/${next.slug}/"><small>다음 글 →</small>${esc(next.title)}</a>` : '<span></span>'}</nav>
+</article>
+<div class="side-col">${statusCard(base)}</div>
+</main>`,
+  }));
+});
+
+out.set('about/index.html', page({
+  title: `주니어 소개 - ${config.title}`, description: `${config.title}의 주인공, ${player.age}살 ${player.position} 주니어를 소개합니다.`, canonical: '/about/', base: '../',
+  body: `<main class="wrap post-wrap"><article class="post"><header class="post-head"><h1>주니어를 소개합니다</h1><p class="lead">${player.age}살, 등번호 ${player.backNumber}번 ${esc(player.position)}. 이 블로그의 주인공입니다.</p></header>
+<div class="prose"><p>${esc(config.description)}</p>
+<h2>블로그 규칙</h2><ul><li>${esc(player.note)}</li><li>상태창 점수는 프로 선수와 비교한 점수가 아니라, 첫 측정을 기준으로 한 우리 아이만의 성장 지표입니다.</li><li>글은 아빠의 관찰과 기록이며, 의학·전문 코칭 조언이 아닙니다.</li></ul>
+<h2>지금까지의 기록</h2><ul>${newest.map((p) => `<li><a href="../posts/${p.slug}/">${esc(p.title)}</a> <small>${shortDate(p.date)}</small></li>`).join('')}</ul></div></article>
+<div class="side-col">${statusCard('../')}</div></main>`,
+}));
+
+out.set('404.html', page({ title: `페이지를 찾을 수 없어요 - ${config.title}`, description: '', canonical: '/404.html', base: '/', body: '<main class="wrap"><p class="empty">공이 골대를 벗어났어요. 없는 페이지입니다.<br><a href="./">처음으로</a></p></main>' }));
+
+const rssItems = newest.slice(0, 30).map((p) => `<item><title>${esc(p.title)}</title><link>${esc(`${siteUrl}/posts/${p.slug}/`)}</link><guid>${esc(`${siteUrl}/posts/${p.slug}/`)}</guid><pubDate>${p.date.toUTCString()}</pubDate><category>${esc(p.category)}</category><description>${esc(p.summary)}</description></item>`).join('\n');
+out.set('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>${esc(config.title)}</title><link>${esc(siteUrl)}/</link><description>${esc(config.description)}</description><language>ko</language>\n${rssItems}\n</channel></rss>\n`);
+out.set('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${['/', '/about/', ...newest.map((p) => `/posts/${p.slug}/`)].map((u) => `<url><loc>${esc(siteUrl + u)}</loc></url>`).join('\n')}\n</urlset>\n`);
+out.set('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
+out.set('favicon.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#2f9e5b"/><text x="32" y="44" font-size="34" text-anchor="middle">⚽</text></svg>`);
+out.set('.nojekyll', '');
+for (const p of posts) if (!p.cover) out.set(`covers/${p.slug}.svg`, coverSvg(p));
+
+// ---------- 쓰기 ----------
+await fs.rm(dist, { recursive: true, force: true });
+for (const [rel, content] of out) {
+  const file = path.join(dist, rel);
+  await fs.mkdir(path.dirname(file), { recursive: true });
+  await fs.writeFile(file, content);
+}
+await fs.copyFile(path.join(root, 'src', 'style.css'), path.join(dist, 'style.css'));
+await fs.cp(path.join(root, 'images'), path.join(dist, 'images'), { recursive: true });
+for (const p of posts) if (p.cover) await fs.access(path.join(root, p.cover)).catch(() => { throw new Error(`${p.file}: cover 파일 ${p.cover} 이 없습니다`); });
+console.log(`dist/ 생성: 공개 글 ${posts.length}편${scheduled ? `, 예약 ${scheduled}편` : ''}${showDrafts ? ' (예약 글 포함 미리보기)' : ''}`);

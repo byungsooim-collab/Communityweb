@@ -1,14 +1,6 @@
 {
-  "name": "communityweb",
+  "name": "soccer-daddy",
   "version": "1.0.0",
-  "scripts": {
-    "collect": "node pipeline/collect.js",
-    "build": "node scripts/build.js",
-    "update": "npm run collect && npm run build",
-    "serve": "npx --yes serve dist",
-    "sample": "node pipeline/sample.js",
-    "test": "node --test pipeline/*.test.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/byungsooim-collab/Communityweb.git"
@@ -23,6 +15,12 @@
     "node": ">=22"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^1.8.0"
+    "gray-matter": "^4.0.3",
+    "marked": "^18.2.1"
+  },
+  "scripts": {
+    "build": "node src/build.js",
+    "preview": "node src/build.js --drafts",
+    "serve": "npx --yes serve dist"
   }
 }
