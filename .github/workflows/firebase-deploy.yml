@@ -1,0 +1,41 @@
+name: Firebase 배포
+
+on:
+  push:
+    branches: [main, ccr-91e63263-53d19o]
+  schedule:
+    # 예약 글 공개: 매일 09:05, 19:05 (KST)
+    - cron: '5 0,10 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: firebase-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: 설정 확인
+        env:
+          SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          PID: ${{ vars.FIREBASE_PROJECT_ID }}
+        run: |
+          if [ -z "$SA" ] || [ -z "$PID" ]; then
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT 시크릿 또는 FIREBASE_PROJECT_ID 변수가 없어 배포를 건너뜁니다. FIREBASE.md 4단계를 참고하세요."
+            echo "skip=1" >> "$GITHUB_ENV"
+          fi
+      - if: env.skip != '1'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: ${{ vars.FIREBASE_PROJECT_ID }}
+          channelId: live

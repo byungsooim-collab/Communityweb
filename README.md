@@ -16,11 +16,16 @@ npm run serve     # dist/ 미리보기
 | `player.json` | 상태창 항목과 기본 프로필 |
 | `blog.config.json` | 블로그 이름, 소개, 주소 |
 | `src/` | 빌드 스크립트, 자동 표지, 스타일 |
-| `.github/workflows/deploy.yml` | `main` 에 올리거나 매일 09:05·19:05(KST)에 자동 배포 |
+| `.github/workflows/firebase-deploy.yml` | 커밋하거나 매일 09:05·19:05(KST)에 빌드해서 Firebase Hosting 에 배포 |
 
-## 처음 한 번 설정
+## 처음 한 번 설정 (Firebase)
 
-1. 저장소 Settings → General 에서 이름을 바꿉니다(예: `soccer-daddy`).
-2. Settings → Pages → Source 를 **GitHub Actions** 로 바꿉니다.
-3. 작업 브랜치를 `main` 에 병합하면 배포됩니다. 주소는 `https://<아이디>.github.io/<저장소이름>/` 입니다.
-4. `blog.config.json` 의 `siteUrl` 을 실제 주소로 바꿉니다(공유 미리보기·RSS 에 쓰임).
+컴퓨터의 Firebase CLI 로 진행합니다. 자세한 순서는 `FIREBASE.md` 를 보세요.
+
+```bash
+firebase login
+firebase use --add            # 프로젝트 선택 → 별칭 default
+npm install && npm run deploy # 빌드 후 배포
+```
+
+자동 배포(하루 2번 예약 글 공개)는 GitHub 저장소에 `FIREBASE_SERVICE_ACCOUNT` 시크릿과 `FIREBASE_PROJECT_ID` 변수를 등록하면 동작합니다.
